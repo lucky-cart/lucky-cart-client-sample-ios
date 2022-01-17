@@ -59,8 +59,8 @@
 		BCC5A4A52794F09000407C8D /* PaidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A32794F09000407C8D /* PaidView.swift */; };
 		BCC5A4A72794F96A00407C8D /* ActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A62794F96A00407C8D /* ActionsView.swift */; };
 		BCC5A4A82794F96A00407C8D /* ActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A62794F96A00407C8D /* ActionsView.swift */; };
-		BCC5A4AA279507B900407C8D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A9279507B900407C8D /* WelcomeView.swift */; };
-		BCC5A4AB279507B900407C8D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A9279507B900407C8D /* WelcomeView.swift */; };
+		BCC5A4AA279507B900407C8D /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A9279507B900407C8D /* HomePage.swift */; };
+		BCC5A4AB279507B900407C8D /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A9279507B900407C8D /* HomePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,7 +113,7 @@
 		BCC5A4A02794D77800407C8D /* ShopButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopButtonModifier.swift; sourceTree = "<group>"; };
 		BCC5A4A32794F09000407C8D /* PaidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidView.swift; sourceTree = "<group>"; };
 		BCC5A4A62794F96A00407C8D /* ActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsView.swift; sourceTree = "<group>"; };
-		BCC5A4A9279507B900407C8D /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		BCC5A4A9279507B900407C8D /* HomePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		BCC5A4AC27950B4C00407C8D /* ClientAppDocumentationHeader.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ClientAppDocumentationHeader.jpg; sourceTree = "<group>"; };
 		BCC5A4AD27950B4C00407C8D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,7 +245,7 @@
 			children = (
 				BCC5A427279430F300407C8D /* ShopView.swift */,
 				BCC5A4A32794F09000407C8D /* PaidView.swift */,
-				BCC5A4A9279507B900407C8D /* WelcomeView.swift */,
+				BCC5A4A9279507B900407C8D /* HomePage.swift */,
 				BCC5A46B2794417D00407C8D /* HomeView.swift */,
 				BCC5A4A62794F96A00407C8D /* ActionsView.swift */,
 				BCC5A4932794773F00407C8D /* ProductView.swift */,
@@ -455,7 +455,7 @@
 				BCC5A4972794B32A00407C8D /* LuckyShop+Model.swift in Sources */,
 				BCC5A4A42794F09000407C8D /* PaidView.swift in Sources */,
 				BCC5A4632794311700407C8D /* LuckyShop.swift in Sources */,
-				BCC5A4AA279507B900407C8D /* WelcomeView.swift in Sources */,
+				BCC5A4AA279507B900407C8D /* HomePage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,7 +476,7 @@
 				BCC5A4982794B32A00407C8D /* LuckyShop+Model.swift in Sources */,
 				BCC5A4A52794F09000407C8D /* PaidView.swift in Sources */,
 				BCC5A4642794311700407C8D /* LuckyShop.swift in Sources */,
-				BCC5A4AB279507B900407C8D /* WelcomeView.swift in Sources */,
+				BCC5A4AB279507B900407C8D /* HomePage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

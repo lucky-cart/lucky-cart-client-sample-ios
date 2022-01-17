@@ -12,13 +12,16 @@ struct PaidView: View {
     
     @EnvironmentObject var shop: LuckyShop
 
+    
+    var action: (()->Void)
+
     var body: some View {
         HStack {
         VStack {
             Image("logo").resizable().frame(width: 160, height: 160, alignment: .center)
             Text("Thanks for your purchase")
             Button("Shop Again") {
-                shop.cart = LuckyShop.Cart()
+                action()
             }
             .modifier(ShopButtonModifier(color: .green))
         }
@@ -28,6 +31,6 @@ struct PaidView: View {
 
 struct PaidView_Previews: PreviewProvider {
     static var previews: some View {
-        PaidView()
+        PaidView() { }
     }
 }

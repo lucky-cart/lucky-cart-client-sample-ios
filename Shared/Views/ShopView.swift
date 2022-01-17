@@ -9,6 +9,12 @@ import SwiftUI
 
 struct ShopView: View {
     
+    enum Page {
+        case homepage
+        case shopping
+        case paid
+    }
+    
     @EnvironmentObject var shop: LuckyShop
     
     var displayedCategories: [LuckyShop.Category] {
@@ -16,32 +22,35 @@ struct ShopView: View {
     }
     
     @State var orders = [LuckyShop.Order]()
-    @State var paid: Bool = false
     
-    @State var selectedTab: String = "homepage"
+    @State var selectedTab: String = "browser"
     
-    @State var welcome = true
+    @State var page: Page = .homepage
     
     var body: some View {
         VStack {
-            if welcome {
-                WelcomeView() {
+            switch page {
+            case .homepage:
+                HomePage() {
                     shop.cart = LuckyShop.Cart()
-                    welcome = false
+                    page = .shopping
                 }
-            } else if paid {
-                PaidView()
-            } else {
+            case .paid:
+                PaidView() {
+                    shop.cart = LuckyShop.Cart()
+                    page = .homepage
+                }
                 
+            case .shopping:
                 TabView(selection: $selectedTab) {
                     VStack {
                         HomeView(displayedCategories: displayedCategories)
                     }
                     .tabItem {
-                        Image(systemName: "house")
-                        Text("Home")
+                        Image(systemName: "magnifyingglass")
+                        Text("Browse")
                     }
-                    .tag("homepage")
+                    .tag("browser")
                     
                     CartView(orders: shop.cart.productOrders)
                         .tabItem {
@@ -54,14 +63,15 @@ struct ShopView: View {
             }
         }
         .onReceive(shop.cart.$paid) { paid in
-            self.paid = paid
+            if paid {
+                self.page = .paid
+            }
         }
         .onReceive(shop.$selectedView) { identifier in
             selectedTab = identifier
         }
         .onReceive(shop.$cart) { cart in
-            selectedTab = "homepage"
-            paid = cart.paid
+//            selectedTab = "browser"
             orders = cart.productOrders
         }
 

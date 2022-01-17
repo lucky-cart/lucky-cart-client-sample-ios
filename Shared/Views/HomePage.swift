@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct WelcomeView: View {
+struct HomePage: View {
     
     @EnvironmentObject var shop: LuckyShop
 
@@ -30,6 +30,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        HomePage()
     }
 }
