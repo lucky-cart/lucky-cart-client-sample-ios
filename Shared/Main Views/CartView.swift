@@ -45,7 +45,12 @@ struct CartView: View {
             }
         
         ActionsView(numberOfProducts: $numberOfProducts, action: ("Pay", { response in
-            shop.cart.paid = true
+            shop.checkOut { error in
+                
+            } success: { response in
+                
+            }
+
         })).padding()
             .onReceive(shop.cart.$totalNumberOfProducts) { numberOfProducts in
                 self.numberOfProducts = numberOfProducts

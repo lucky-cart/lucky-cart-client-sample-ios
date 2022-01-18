@@ -7,17 +7,22 @@
 //
 
 import SwiftUI
+import LuckyCart
 
 @main
 struct Lucky_ShopApp: App {
     
+    // Your shop manager
+    let luckyShop = LuckyShop()
+    
+
     var body: some Scene {
         WindowGroup {
-            ShopView(orders: []).environmentObject(LuckyShop())
+            ShopView(orders: []).environmentObject(luckyShop)
                 .padding()
-            #if os(macOS)
+#if os(macOS)
                 .frame(minWidth: 800, idealWidth: 800, maxWidth: 1200, minHeight: 600, idealHeight: 600, maxHeight: 800)
-            #endif
+#endif
         }
     }
 }

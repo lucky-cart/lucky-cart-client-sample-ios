@@ -36,7 +36,7 @@ extension LuckyShop {
     
     
     class Customer {
-
+        var id = UUID()
         var lastName: String
         var firstName: String
         var phone: String
@@ -78,9 +78,14 @@ extension LuckyShop {
         var totalPrice: Double {
             product.price * Double(quantity)
         }
+        
+        var totalPriceWithoutTax: Double {
+            product.priceWithoutTax * Double(quantity)
+        }
     }
 
     class Cart: ObservableObject {
+        let id = UUID()
         
         static var formatter: NumberFormatter = {
             let formatter = NumberFormatter()
@@ -100,7 +105,17 @@ extension LuckyShop {
             return Cart.formatter.string(for: totalPrice) ?? "\(totalPrice)"
         }
         
+        var totalPriceWithoutTaxesString: String {
+            return Cart.formatter.string(for: totalPrice) ?? "\(totalPrice)"
+        }
+        
         var totalPrice: Double {
+            return productOrders.reduce(0, { total, order in
+                return total + order.totalPrice
+            })
+        }
+        
+        var totalPriceWithoutTax: Double {
             return productOrders.reduce(0, { total, order in
                 return total + order.totalPrice
             })

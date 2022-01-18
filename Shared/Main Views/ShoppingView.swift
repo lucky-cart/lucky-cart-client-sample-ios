@@ -7,8 +7,11 @@
 //
 
 import SwiftUI
+import LuckyCart
 
-struct HomeView: View {
+struct ShoppingView: View, BannerSpaceView {
+    @State var banners: [LCBanner] = []
+    var bannerSpaceId: LCBannerSpaceIdentifier = LCBannerSpaceIdentifier("categories")
     
     @EnvironmentObject var shop: LuckyShop
     
@@ -33,6 +36,13 @@ struct HomeView: View {
             
             .navigationTitle("Lucky Shop")
         }
+        .task {
+            LuckyCart.shared.loadAllBanners(for: self.bannerSpaceId,
+            failure: { _ in })
+            { banner in
+                print("Received Banner : ---->\r\(banner)\r<-----\r")
+            }
+        }
         
         ActionsView(numberOfProducts: $numberOfProducts, action: ("Check Out", { response in
             shop.selectedView = "cart"
@@ -40,14 +50,12 @@ struct HomeView: View {
             .onReceive(shop.cart.$totalNumberOfProducts) { numberOfProducts in
                 self.numberOfProducts = numberOfProducts
             }
-        
-        
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct ShoppingView_Previews: PreviewProvider {
     static var previews: some View {
         let shop = LuckyShop()
-        HomeView(displayedCategories: Array(shop.catalog)).environmentObject(shop)
+        ShoppingView(displayedCategories: Array(shop.catalog)).environmentObject(shop)
     }
 }

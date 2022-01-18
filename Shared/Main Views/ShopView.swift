@@ -28,10 +28,10 @@ struct ShopView: View {
     @State var page: Page = .homepage
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 16) {
             switch page {
             case .homepage:
-                HomePage() {
+                HomePageView() {
                     shop.cart = LuckyShop.Cart()
                     page = .shopping
                 }
@@ -44,7 +44,7 @@ struct ShopView: View {
             case .shopping:
                 TabView(selection: $selectedTab) {
                     VStack {
-                        HomeView(displayedCategories: displayedCategories)
+                        ShoppingView(displayedCategories: displayedCategories)
                     }
                     .tabItem {
                         Image(systemName: "magnifyingglass")
@@ -71,7 +71,6 @@ struct ShopView: View {
             selectedTab = identifier
         }
         .onReceive(shop.$cart) { cart in
-//            selectedTab = "browser"
             orders = cart.productOrders
         }
 
