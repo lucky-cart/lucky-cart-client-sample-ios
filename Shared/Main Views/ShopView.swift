@@ -7,6 +7,36 @@
 
 import SwiftUI
 
+
+public struct ShopButtonModifier: ViewModifier {
+
+    var color: Color = .orange
+    
+    public func body(content: Content) -> some View {
+            content
+            .buttonStyle(PlainButtonStyle())
+            .fixedSize()
+            .padding(7)
+            .frame(minWidth: 80)
+            .foregroundColor(.white)
+            .background(color)
+            .cornerRadius(6)
+    }
+}
+
+#if DEBUG
+
+struct ShopButtonModifier_Previews: PreviewProvider {
+    static var previews: some View {
+        Button("Test") {
+            print("Test Tapped")
+        }.modifier(ShopButtonModifier())
+    }
+}
+
+#endif
+
+
 struct ShopView: View {
     
     enum Page {
