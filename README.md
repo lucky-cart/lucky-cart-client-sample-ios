@@ -172,9 +172,13 @@ extension MyShopManager {
         // Sample shop does not send any request, it simply marks the cart as paid
         LuckyCart.shared.checkOut(ticketComposer: ticketComposerForLuckyCart,
                                   failure: { error in
-            DispatchQueue.main.async { self.aknowledgePayment() }
+            DispatchQueue.main.async { 
+           	  // Deal with the error and update your UI 
+            }
         }, success: { response in
-            DispatchQueue.main.async { self.aknowledgePayment() }
+            DispatchQueue.main.async { 
+			     // Deal with LuckyCart answer and update your UI
+		     }
         })
     }
 
@@ -247,7 +251,8 @@ struct MyGamesView: GamesView {
                 Image("logo").resizable().frame(width: 160, height: 160, alignment: .center)
                 Text("Thanks for your purchase")
                 
-                // Displays the LuckyCart banners
+                // Displays the LuckyCart game banners
+
                 // --->
                 
                 List(games) { game in
