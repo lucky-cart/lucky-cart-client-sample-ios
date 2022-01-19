@@ -15,9 +15,9 @@ import LuckyCart
 extension LuckyShop {
     
     func initLuckyCart() {
-        LuckyCart(authorization: LuckyCart.testAuthorization,
-                  customer: LuckyCart.testCustomer,
-                  cart: LuckyCart.testCart)
+        _ = LuckyCart(authorization: LuckyCart.testAuthorization,
+                      customer: LuckyCart.testCustomer,
+                      cart: LuckyCart.testCart)
     }
     
     // Add any extra information here

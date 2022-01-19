@@ -12,7 +12,7 @@ import LuckyCart
 typealias Order = LuckyShop.Order
 
 class LuckyShop: ObservableObject, LuckyCartClient {
-    
+        
     var shopId = "2022_luckyshop"
     var currency: String = "EUR"
     
@@ -38,20 +38,19 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     /// Value is published, so the UI can refresh accordingly
     @Published var selectedView: String = "homepage"
     
-    
-    /// Send a request to check out and wait for the result
-    func checkOut(failure: @escaping (Error)->Void,
-                  success: @escaping (LCPostCartResponse)->Void) {
+    /// The check out request - in this sample, there is no network call.
+    func checkOut(failure: @escaping (Error) -> Void, success: @escaping (Any?) -> Void) {
         
-        // Sample shop does not send any request, it simply marks the cart as paid
+        // Execute your checkout request here
+        // Then proceed to LuckCart checkOut
+        
         LuckyCart.shared.checkOut(ticketComposer: ticketComposerForLuckyCart,
-                                  failure: { error in
-            DispatchQueue.main.async { self.aknowledgePayment() }
-        }, success: { response in
-            DispatchQueue.main.async { self.aknowledgePayment() }
-        })
+                                  failure: failure) { postCartResponse in
+            success(postCartResponse)
+        }
     }
     
+
     func aknowledgePayment() {
         self.cart.paid = true
     }

@@ -9,15 +9,6 @@
 import SwiftUI
 import LuckyCart
 
-protocol BannerSpaceView: View {
-    var bannerSpaceId: LCBannerSpaceIdentifier { get }
-    var banners: [LCBanner] { get set }
-}
-
-protocol GamesView: View {
-    var games: [LCGame] { get set }
-}
-
 struct HomePageView: BannerSpaceView {
     var bannerSpaceId: LCBannerSpaceIdentifier = .homePage
 
