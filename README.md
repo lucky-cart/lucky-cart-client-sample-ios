@@ -9,7 +9,7 @@ It demonstrates the LuckyCart integration steps that will enable promotional ban
 
 This is a SwiftUI based project, that runs on ios and macos platforms.
 
-![LuckyCart Client App Screenshots](ClientAppDocumentationHeader.jpg)
+![LuckyCart Client App Screenshots](ClientAppDocumentationHeader.png)
 
 ## <font color='#1E72AD'>Installation:</font>
 
@@ -158,33 +158,6 @@ extension MyShopManager {
 }
 ```
 
-#### Implement the checkout
-
-Once your application did a succesful checkout, call this function to send ticket information to LuckyCart and receive an aknowledgment.
-
-```swift
-extension MyShopManager {
-    
-    /// Send a request to check out and wait for the result
-    func checkOut(failure: @escaping (Error)->Void,
-                  success: @escaping (LCPostCartResponse)->Void) {
-        
-        // Sample shop does not send any request, it simply marks the cart as paid
-        LuckyCart.shared.checkOut(ticketComposer: ticketComposerForLuckyCart,
-                                  failure: { error in
-            DispatchQueue.main.async { 
-           	  // Deal with the error and update your UI 
-            }
-        }, success: { response in
-            DispatchQueue.main.async { 
-			     // Deal with LuckyCart answer and update your UI
-		     }
-        })
-    }
-
-}
-```
-
 ### 2 - Display Banners
 
 #### SwiftUI
@@ -237,7 +210,37 @@ struct MyHomePageView: BannerSpaceView {
 }
 ```
 
-### 3 - Display Games
+### 3 - Proceed Check Out
+
+#### Implement the checkout
+
+Once your application did a succesful checkout, call this function to send ticket information to LuckyCart and receive an aknowledgment.
+
+```swift
+extension MyShopManager {
+    
+    /// Send a request to check out and wait for the result
+    func checkOut(failure: @escaping (Error)->Void,
+                  success: @escaping (LCPostCartResponse)->Void) {
+        
+        // Sample shop does not send any request, it simply marks the cart as paid
+        LuckyCart.shared.checkOut(ticketComposer: ticketComposerForLuckyCart,
+                                  failure: { error in
+            DispatchQueue.main.async { 
+           	  // Deal with the error and update your UI 
+            }
+        }, success: { response in
+            DispatchQueue.main.async { 
+			     // Deal with LuckyCart answer ( LCPostCartResponse ) and update your UI
+			     // This is where the user can browse and play the available games
+		     }
+        })
+    }
+
+}
+```
+
+### 4 - Display Games
 
 
 ```swift
