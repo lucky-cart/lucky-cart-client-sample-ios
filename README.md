@@ -70,7 +70,7 @@ Once you have choosen the object you want to interact with LuckyCart, implement 
 
 Starts the LuckyCart framework using authorization, luckyCart customer and cart ids. 
 
-```
+```swift
 class MyShopManager: LuckyCartClient {
 
     func initLuckyCart() {
@@ -119,7 +119,7 @@ This composer request some sub-composers for the Customer, the Cart, The Product
 
 Example of implementation:
 
-```
+```swift
 extension MyShopManager {
     
     var metaDataForLuckyCart: LCTicketComposer.MetaData {
@@ -162,7 +162,7 @@ extension MyShopManager {
 
 Once your application did a succesful checkout, call this function to send ticket information to LuckyCart and receive an aknowledgment.
 
-```
+```swift
 extension MyShopManager {
     
     /// Send a request to check out and wait for the result
@@ -201,7 +201,7 @@ It then displays all available banners in a list.
 
 How banners are used and displayed is the client responsaibility. 
 
-```
+```swift
 struct MyHomePageView: BannerSpaceView {
     var bannerSpaceId: LCBannerSpaceIdentifier = .homePage    
     @State var banners: [LCBanner] = []
@@ -236,8 +236,8 @@ struct MyHomePageView: BannerSpaceView {
 ### 3 - Display Games
 
 
-```
-struct MyGamesView: BannerSpaceView {
+```swift
+struct MyGamesView: GamesView {
         
     @State var games: [LCGame] = []
     
