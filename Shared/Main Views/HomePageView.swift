@@ -35,8 +35,7 @@ struct HomePageView: BannerSpaceView {
                 .modifier(ShopButtonModifier(color: .green))
             }
         }.task {
-            LuckyCart.shared.loadAllBanners(for: bannerSpaceId, failure: { error in
-                
+            LuckyCart.shared.banner(with: LCBannerIdentifier.banner, failure: { error in
             }) { banner in
                     banners.append(banner)
             }

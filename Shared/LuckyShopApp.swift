@@ -18,11 +18,14 @@ struct Lucky_ShopApp: App {
 
     var body: some Scene {
         WindowGroup {
+            withAnimation {
             ShopView(orders: []).environmentObject(luckyShop)
-                .padding()
+            .modifier(LCDebugLensModifier())
+                
 #if os(macOS)
                 .frame(minWidth: 800, idealWidth: 800, maxWidth: 1200, minHeight: 600, idealHeight: 600, maxHeight: 800)
 #endif
+        }
         }
     }
 }

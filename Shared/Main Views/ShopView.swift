@@ -6,23 +6,10 @@
 //
 
 import SwiftUI
+import LuckyCart
 
-
-public struct ShopButtonModifier: ViewModifier {
-
-    var color: Color = .orange
-    
-    public func body(content: Content) -> some View {
-            content
-            .buttonStyle(PlainButtonStyle())
-            .fixedSize()
-            .padding(7)
-            .frame(minWidth: 80)
-            .foregroundColor(.white)
-            .background(color)
-            .cornerRadius(6)
-    }
-}
+// We use LuckyCart provided button style for the sample app
+typealias ShopButtonModifier = LCButtonModifier
 
 #if DEBUG
 

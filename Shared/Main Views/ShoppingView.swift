@@ -10,7 +10,9 @@ import SwiftUI
 import LuckyCart
 
 struct ShoppingView: View, BannerSpaceView {
+    
     @State var banners: [LCBanner] = []
+    
     var bannerSpaceId: LCBannerSpaceIdentifier = LCBannerSpaceIdentifier("categories")
     
     @EnvironmentObject var shop: LuckyShop
@@ -37,7 +39,7 @@ struct ShoppingView: View, BannerSpaceView {
             .navigationTitle("Lucky Shop")
         }
         .task {
-            LuckyCart.shared.loadAllBanners(for: self.bannerSpaceId,
+            LuckyCart.shared.banner(with: .banner.byAppending("_100"),
             failure: { _ in })
             { banner in
                 print("Received Banner : ---->\r\(banner)\r<-----\r")

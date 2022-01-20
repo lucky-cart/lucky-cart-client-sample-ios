@@ -38,6 +38,8 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     /// Value is published, so the UI can refresh accordingly
     @Published var selectedView: String = "homepage"
     
+    
+    
     /// The check out request - in this sample, there is no network call.
     func checkOut(failure: @escaping (Error) -> Void, success: @escaping (Any?) -> Void) {
         

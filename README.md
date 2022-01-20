@@ -200,7 +200,7 @@ struct MyHomePageView: BannerSpaceView {
                 // <---
             }
         }.task {
-            LuckyCart.shared.loadAllBanners(for: bannerSpaceId, failure: { error in
+            LuckyCart.shared.banner(with: .homepage, failure: { error in
                 print("\(error.localizedDescription)")
             }) { banner in
                 banners.append(banner)
