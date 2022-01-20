@@ -123,7 +123,6 @@
 		BCC5A4A62794F96A00407C8D /* ActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsView.swift; sourceTree = "<group>"; };
 		BCC5A4A9279507B900407C8D /* HomePageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		BCC5A4AD27950B4C00407C8D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		BCEC7336279854E20091792C /* lucky-cart-ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "lucky-cart-ios"; path = "../lucky-cart-ios"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +162,6 @@
 		BCC5A420279430F300407C8D = {
 			isa = PBXGroup;
 			children = (
-				BCEC7335279854E20091792C /* Packages */,
 				BC5BDBF92795F63900BAC3FE /* Lucky-Shop--Info.plist */,
 				BC1B4D4A27980BCF00B5F041 /* ClientAppDocumentationHeader.png */,
 				BCC5A4AD27950B4C00407C8D /* README.md */,
@@ -275,14 +273,6 @@
 				BCC5A471279441C900407C8D /* CategoryView.swift */,
 			);
 			path = "LuckyShop Kit";
-			sourceTree = "<group>";
-		};
-		BCEC7335279854E20091792C /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				BCEC7336279854E20091792C /* lucky-cart-ios */,
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

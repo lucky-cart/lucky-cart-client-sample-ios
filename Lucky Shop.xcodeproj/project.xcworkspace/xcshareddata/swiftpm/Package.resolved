@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LuckyCart",
+        "repositoryURL": "git@github.com:lucky-cart/lucky-cart-ios.git",
+        "state": {
+          "branch": "master",
+          "revision": "1d1cad54884bf3f794c4ab40e3d83d02689cfd7d",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
