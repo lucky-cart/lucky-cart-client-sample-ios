@@ -39,7 +39,7 @@ struct ShoppingView: View, BannerSpaceView {
             .navigationTitle("Lucky Shop")
         }
         .task {
-            LuckyCart.shared.banner(with: .banner.byAppending("_100"),
+            LuckyCart.shared.banner(with: .banner.byAppending("_100"), bannerSpaceIdentifier: bannerSpaceId,
             failure: { _ in })
             { banner in
                 print("Received Banner : ---->\r\(banner)\r<-----\r")

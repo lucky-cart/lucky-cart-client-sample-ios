@@ -50,6 +50,8 @@ struct ShopView: View {
             case .homepage:
                 HomePageView() {
                     shop.cart = LuckyShop.Cart()
+                    LuckyCart.shared.newCart()
+                    
                     page = .shopping
                 }
             case .paid:

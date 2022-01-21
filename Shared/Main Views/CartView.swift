@@ -48,7 +48,7 @@ struct CartView: View {
             shop.checkOut { error in
                 
             } success: { response in
-                
+                shop.cart.paid = true
             }
 
         })).padding()

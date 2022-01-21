@@ -17,7 +17,7 @@ extension LuckyShop {
     func initLuckyCart() {
         _ = LuckyCart(authorization: LuckyCart.testAuthorization,
                       customer: LuckyCart.testCustomer,
-                      cart: LuckyCart.testCart)
+                      cart: LCCart())
     }
     
     // Add any extra information here
