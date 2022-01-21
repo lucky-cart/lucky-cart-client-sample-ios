@@ -15,9 +15,7 @@ import LuckyCart
 extension LuckyShop {
     
     func initLuckyCart() {
-        _ = LuckyCart(authorization: LuckyCart.testAuthorization,
-                      customer: LuckyCart.testCustomer,
-                      cart: LCCart())
+        _ = LuckyCart(authorization: LuckyCart.testAuthorization)
     }
     
     // Add any extra information here
@@ -30,10 +28,10 @@ extension LuckyShop {
     
     
     var customerForLuckyCart: LCTicketComposer.Customer {
-        LCTicketComposer.Customer(customerClientId: customer.id.uuidString,
-                                  email: customer.eMail,
-                                  firstName: customer.firstName,
-                                  lastName: customer.lastName)
+        LCTicketComposer.Customer(customerClientId: customer?.id.uuidString,
+                                  email: customer?.eMail,
+                                  firstName: customer?.firstName,
+                                  lastName: customer?.lastName)
     }
     
     var cartForLuckyCart: LCTicketComposer.Cart {

@@ -42,7 +42,7 @@ struct CartView: View {
                 Spacer()
                 let priceString = shop.cart.totalPriceString
                 Text(priceString)
-            }
+            }.padding()
         
         ActionsView(numberOfProducts: $numberOfProducts, action: ("Pay", { response in
             shop.checkOut { error in

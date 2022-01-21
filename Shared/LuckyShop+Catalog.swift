@@ -33,7 +33,7 @@ struct TestCatalog {
         LuckyShop.Product(name: "Red Apple", identifier: "apple.red", imageName: "apple.red", brand: bringYaFruit, price: 4.95),
         LuckyShop.Product(name: "Green Apple", identifier: "apple.green", imageName: "apple.green", brand: bringYaFruit, price: 4.45)
     ])
-
+    
     static var catalog: [LuckyShop.Category] {
         return [
             TestCatalog.coffees,
@@ -42,3 +42,13 @@ struct TestCatalog {
     }
 }
 
+extension Array where Element == LuckyShop.Category {
+    func product(with identifier: String) -> LuckyShop.Product? {
+        for category in self {
+            if let product = category.products.first(where:{$0.identifier == identifier}) {
+                return product
+            }
+        }
+        return nil
+    }
+}

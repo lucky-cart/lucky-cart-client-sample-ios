@@ -30,9 +30,8 @@ struct ShoppingView: View, BannerSpaceView {
                     NavigationLink {
                         CategoryBrowser(category: category)
                     } label: {
-                        CategoryView(item:category).frame(minWidth: 200, idealWidth: 300, maxWidth: 1000, minHeight: 80, idealHeight: 100, maxHeight: 120, alignment: .center)
+                        CategoryView(item:category).frame(minWidth: 200, maxWidth: 1000, minHeight: 80, maxHeight: 120, alignment: .center)
                     }
-                    
                 }
             }
             
@@ -55,9 +54,13 @@ struct ShoppingView: View, BannerSpaceView {
     }
 }
 
+#if DEBUG
+
 struct ShoppingView_Previews: PreviewProvider {
     static var previews: some View {
         let shop = LuckyShop()
         ShoppingView(displayedCategories: Array(shop.catalog)).environmentObject(shop)
     }
 }
+
+#endif

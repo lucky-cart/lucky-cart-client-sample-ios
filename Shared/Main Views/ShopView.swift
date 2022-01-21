@@ -44,19 +44,22 @@ struct ShopView: View {
     
     @State var page: Page = .homepage
     
+    @State var customerId: String? = LuckyCart.shared.customer.id
+    
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
+            HStack {
+                Text("LuckyCart Customer : \(LuckyCart.shared.customer.id)").font(.caption)
+            }
             switch page {
             case .homepage:
                 HomePageView() {
-                    shop.cart = LuckyShop.Cart()
-                    LuckyCart.shared.newCart()
-                    
+                    shop.newCart()
                     page = .shopping
+                    selectedTab = "browser"
                 }
             case .paid:
-                PaidView() {
-                    shop.cart = LuckyShop.Cart()
+                CartPaidView() {
                     page = .homepage
                 }
                 
@@ -92,7 +95,10 @@ struct ShopView: View {
         .onReceive(shop.$cart) { cart in
             orders = cart.productOrders
         }
-
+        .onReceive(shop.$customer) { cart in
+            customerId = shop.customer?.id.uuidString
+        }
+        .padding()
     }
 }
 

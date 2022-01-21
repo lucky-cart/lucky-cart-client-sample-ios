@@ -17,7 +17,14 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     var currency: String = "EUR"
     
     /// The user customer data
-    var customer: Customer = Customer.test
+    ///
+    /// It's the right place to set LuckyCart user id
+    ///
+    @Published var customer: Customer? {
+        didSet {
+            LuckyCart.shared.setUser(customer == nil ? nil : LuckyCart.testCustomer)
+        }
+    }
     
     /// Your catalog manager
     ///
@@ -38,7 +45,25 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     /// Value is published, so the UI can refresh accordingly
     @Published var selectedView: String = "homepage"
     
+    var loggedIn: Bool {
+        customer != nil
+    }
     
+    func login() {
+        customer = Customer.test
+    }
+    
+    func logout() {
+        customer = nil
+    }
+    
+    /// Your cart creation function
+    ///
+    /// The right place to initialise a LuckyCart cart
+    func newCart() {
+        cart = LuckyShop.Cart()
+        LuckyCart.shared.newCart()
+    }
     
     /// The check out request - in this sample, there is no network call.
     func checkOut(failure: @escaping (Error) -> Void, success: @escaping (Any?) -> Void) {
@@ -55,6 +80,16 @@ class LuckyShop: ObservableObject, LuckyCartClient {
 
     func aknowledgePayment() {
         self.cart.paid = true
+    }
+    
+    /// Returns the banner identifier for a given product
+    func bannerIdentifier(for product: Product) -> LCBannerIdentifier? {
+        switch product.identifier {
+            case "ristretto":
+                return "banner_100"
+        default:
+            return nil
+        }
     }
     
     init() {

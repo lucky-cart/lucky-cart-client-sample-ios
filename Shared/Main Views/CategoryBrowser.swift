@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import LuckyCart
 
 struct CategoryBrowser: View {
     
@@ -14,13 +15,15 @@ struct CategoryBrowser: View {
 
     @State var category: LuckyShop.Category
     
+    var bannerSpaceIdentifier: LCBannerSpaceIdentifier? = .categories
+    
     var products: [LuckyShop.Product] {
         category.products
     }
     
     var body: some View {
         List(products) { product in
-            ProductView(item: product)
+            ProductView(item: product, bannerSpaceIdentifier: bannerSpaceIdentifier)
         }
         .navigationTitle(category.name)
     }
@@ -28,6 +31,6 @@ struct CategoryBrowser: View {
 
 struct ProductBrowser_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryBrowser(category: TestCatalog.coffees)
+        CategoryBrowser(category: TestCatalog.coffees, bannerSpaceIdentifier: .categories)
     }
 }

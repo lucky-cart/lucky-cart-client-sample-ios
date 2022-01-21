@@ -9,7 +9,7 @@
 import SwiftUI
 import LuckyCart
 
-struct PaidView: View, GamesView {
+struct CartPaidView: View, GamesView {
     
     @EnvironmentObject var shop: LuckyShop
     
@@ -19,7 +19,7 @@ struct PaidView: View, GamesView {
     
     var body: some View {
         HStack {
-            VStack {
+            VStack(alignment: .center, spacing: 8) {
                 Image("logo").resizable().frame(width: 160, height: 160, alignment: .center)
                 Text("Thanks for your purchase")
                 Button("Shop Again") {
@@ -27,12 +27,16 @@ struct PaidView: View, GamesView {
                 }
                 .modifier(ShopButtonModifier(color: .green))
                 
-                List(games) { game in
+                List($games) { game in
                     LCGameView(game: game)
-                    .frame(height: 80, alignment: .center)
+                        .frame(minWidth: nil, idealWidth: nil, maxWidth: nil, minHeight: 30, idealHeight: 240, maxHeight: 300)
                 }
             }
         }
+        // We subscribe to the LuckyCart shared instance to refresh view when games are loaded
+        .onReceive(LuckyCart.shared.$games, perform: { games in
+            self.games = games ?? []
+        })
         .task {
             LuckyCart.shared.loadGames { _ in
                 
@@ -45,6 +49,6 @@ struct PaidView: View, GamesView {
 
 struct PaidView_Previews: PreviewProvider {
     static var previews: some View {
-        PaidView() { }
+        CartPaidView() { }
     }
 }

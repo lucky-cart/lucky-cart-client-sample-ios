@@ -7,21 +7,30 @@
 //
 
 import SwiftUI
-
+import LuckyCart
 
 struct ProductView: View {
     
     @EnvironmentObject var shop: LuckyShop
     
     @State var item: LuckyShop.Product
+
+    @State var banner: LCBanner?
+
+    var bannerSpaceIdentifier: LCBannerSpaceIdentifier?
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
-            if let imageName = item.imageName {
-                Image(imageName)
-                    .resizable()
-                    .frame(width: 140, height: 140, alignment: .center)
-                    .fixedSize()
+            if let banner = banner {
+                LCBannerView(banner: banner)
+                .frame(width: 140, height: 140, alignment: .center)
+            } else {
+                if let imageName = item.imageName {
+                    Image(imageName)
+                        .resizable()
+                        .frame(width: 140, height: 140, alignment: .center)
+                        .fixedSize()
+                }
             }
             VStack(alignment: .leading, spacing: 16) {
                 Text(item.name).font(.caption).fixedSize()
@@ -35,6 +44,19 @@ struct ProductView: View {
         //.frame(minHeight: 80, idealHeight: 80, maxHeight: 80, alignment: .center)
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .padding()
+        .task {
+            guard let bannerSpaceIdentifier = bannerSpaceIdentifier else {
+                return
+            }
+            if let bannerForProduct = shop.bannerIdentifier(for: item) {
+                LuckyCart.shared.banner(with: bannerForProduct, bannerSpaceIdentifier: bannerSpaceIdentifier) { _ in
+                    self.banner = nil
+                } success: { banner in
+                    self.banner = banner
+                }
+            }
+        }
+
     }
 }
 

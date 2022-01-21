@@ -18,14 +18,15 @@ struct ActionsView: View {
     
     var body: some View {
         HStack {
-            HStack {
-                if numberOfProducts > 0 {
-                    Text("\(numberOfProducts) Products")
-                } else {
-                    Text("Add Products To Cart").opacity(0.7)
-                }
+                        
+            LogInOutButton()
+            
+            if numberOfProducts > 0 {
+                Text("\(numberOfProducts) Products").font(.caption)
+            } else {
+                Text("Add Products To Cart").opacity(0.7).font(.caption)
             }
-            Spacer()
+            
             if numberOfProducts > 0 {
                 Button(action.0) {
                     action.1() { result in
@@ -33,7 +34,7 @@ struct ActionsView: View {
                     }
                 }.modifier(ShopButtonModifier(color: .green))
             }
-        }.padding(16).cornerRadius(8).opacity(numberOfProducts == 0 ? 0.5 : 0.9)
+        }.padding(16).cornerRadius(8)
     }
 }
 

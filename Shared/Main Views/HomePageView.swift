@@ -11,7 +11,7 @@ import LuckyCart
 
 struct HomePageView: BannerSpaceView {
     var bannerSpaceId: LCBannerSpaceIdentifier = .homePage
-
+    
     @EnvironmentObject var shop: LuckyShop
     
     @State var banners: [LCBanner] = []
@@ -26,20 +26,21 @@ struct HomePageView: BannerSpaceView {
                 
                 List(banners) { banner in
                     LCBannerView(banner: banner)
-                    .frame(height: 80, alignment: .center)
                 }
-
-                Button("Start Shopping") {
-                    action?()
+                HStack {
+                    LogInOutButton()
+                    Button("Start Shopping") {
+                        action?()
+                    }
+                    .modifier(ShopButtonModifier(color: .green))
                 }
-                .modifier(ShopButtonModifier(color: .green))
             }
         }.task {
             LuckyCart.shared.banner(with: LCBannerIdentifier.banner,
                                     bannerSpaceIdentifier: bannerSpaceId,
                                     failure: { error in
             }) { banner in
-                    banners.append(banner)
+                banners.append(banner)
             }
         }
     }
