@@ -9,7 +9,14 @@
 import Foundation
 import LuckyCart
 
-typealias Order = LuckyShop.Order
+/// LuckyShop is a sample applications that demonstrates how to integrate LuckyCart with a native shopping application.
+///
+/// Lucky shop has :
+/// - a catalog (`Catalog`) that holds a dictionary of products (`Product`) keyed by categories (Category).
+/// - a customer (`Customer`) that holds current customer information
+/// - a cart (`Cart`) that manages the current order
+///
+/// This covers the main entities and functions any online shop is expected to have, more or less.
 
 class LuckyShop: ObservableObject, LuckyCartClient {
         
@@ -44,15 +51,41 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     ///
     /// Value is published, so the UI can refresh accordingly
     @Published var selectedView: String = "homepage"
+
+    // MARK: - Initialisation
     
+    /// init
+    ///
+    /// Initialise your shop
+    /// The right place to initialise LuckyCart
+    
+    init() {
+        initLuckyCart()
+    }
+
+    // MARK: - Functions
+
+    /// loggedIn
+    ///
+    /// - returns: True if a customer is set
     var loggedIn: Bool {
         customer != nil
     }
     
+    /// login
+    ///
+    /// Connects the user to the shop server
+    ///
+    /// Note that in this example, the login function always succeed since it uses hardcoded test data
+    /// In the real world, you will probably need to connect to your system
     func login() {
         customer = Customer.test
     }
     
+    
+    /// login
+    ///
+    /// Sets a nil user. ( current customer )
     func logout() {
         customer = nil
     }
@@ -61,11 +94,13 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     ///
     /// The right place to initialise a LuckyCart cart
     func newCart() {
-        cart = LuckyShop.Cart()
+        cart = Cart()
         LuckyCart.shared.newCart()
     }
     
-    /// The check out request - in this sample, there is no network call.
+    /// The check out request - in this sample, there is no network call. We simply call the success closure.
+    ///
+    /// In the real world, you probably need to send a request.
     func checkOut(failure: @escaping (Error) -> Void, success: @escaping (Any?) -> Void) {
         
         // Execute your checkout request here
@@ -77,22 +112,11 @@ class LuckyShop: ObservableObject, LuckyCartClient {
         }
     }
     
-
+    /// When the cart is paid
+    ///
+    ///
     func aknowledgePayment() {
         self.cart.paid = true
     }
     
-    /// Returns the banner identifier for a given product
-    func bannerIdentifier(for product: Product) -> LCBannerIdentifier? {
-        switch product.identifier {
-            case "ristretto":
-                return "banner_100"
-        default:
-            return nil
-        }
-    }
-    
-    init() {
-        initLuckyCart()
-    }
 }

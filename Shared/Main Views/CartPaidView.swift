@@ -9,6 +9,10 @@
 import SwiftUI
 import LuckyCart
 
+/// CartPaidView
+///
+/// The view that the sample app displays once the order is paid
+
 struct CartPaidView: View, GamesView {
     
     @EnvironmentObject var shop: LuckyShop
@@ -27,17 +31,27 @@ struct CartPaidView: View, GamesView {
                 }
                 .modifier(ShopButtonModifier(color: .green))
                 
+                //MARK: - Display LuckyCart Games
+                
                 List($games) { game in
-                    LCGameView(game: game)
-                        .frame(minWidth: nil, idealWidth: nil, maxWidth: nil, minHeight: 30, idealHeight: 240, maxHeight: 300)
+                    LCGameView(game: game.wrappedValue)
+                    .modifier(LCGameResultViewModifier(gameResult: game.gameResult.wrappedValue))
+                    .frame(minWidth: nil, idealWidth: nil, maxWidth: nil,
+                           minHeight: 30, idealHeight: 240, maxHeight: 300)
                 }
+                
             }
         }
-        // We subscribe to the LuckyCart shared instance to refresh view when games are loaded
+        
+        //MARK: - Subscribe to LuckyCart games list to update UI when games are reloaded
+
         .onReceive(LuckyCart.shared.$games, perform: { games in
             self.games = games ?? []
         })
         .task {
+            
+            //MARK: - Load LuckyCart games
+            
             LuckyCart.shared.loadGames { _ in
                 
             } success: { games in
@@ -47,8 +61,12 @@ struct CartPaidView: View, GamesView {
     }
 }
 
+#if DEBUG
+
 struct PaidView_Previews: PreviewProvider {
     static var previews: some View {
         CartPaidView() { }
     }
 }
+
+#endif

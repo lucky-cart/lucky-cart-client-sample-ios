@@ -8,11 +8,15 @@
 
 import SwiftUI
 
+/// CartView
+///
+/// The view that the sample app displays to do the checkout / remove product / change quantities
+
 struct CartView: View {
     
     @EnvironmentObject var shop: LuckyShop
     
-    @State var orders: [LuckyShop.Order]
+    @State var orders: [Order]
     
     @State var numberOfProducts: Int = 0
 
@@ -59,8 +63,12 @@ struct CartView: View {
     }
 }
 
+#if DEBUG
+
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
         CartView(orders: LuckyShop().cart.productOrders)
     }
 }
+
+#endif

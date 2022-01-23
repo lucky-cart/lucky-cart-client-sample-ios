@@ -13,11 +13,11 @@ struct CategoryBrowser: View {
     
     @EnvironmentObject var shop: LuckyShop
 
-    @State var category: LuckyShop.Category
+    @State var category: Category
     
     var bannerSpaceIdentifier: LCBannerSpaceIdentifier? = .categories
     
-    var products: [LuckyShop.Product] {
+    var products: [Product] {
         category.products
     }
     

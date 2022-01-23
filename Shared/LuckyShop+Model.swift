@@ -8,11 +8,11 @@
 
 import Foundation
 
-extension LuckyShop {
+//extension LuckyShop {
 
     class ShopItem: Identifiable, Hashable {
         
-        static func == (lhs: LuckyShop.ShopItem, rhs: LuckyShop.ShopItem) -> Bool {
+        static func == (lhs: ShopItem, rhs: ShopItem) -> Bool {
             lhs.id == rhs.id
         }
         
@@ -121,7 +121,7 @@ extension LuckyShop {
             })
         }
         
-        func add(product: LuckyShop.Product) {
+        func add(product: Product) {
             if let order = productOrders.first(where: {$0.product.identifier == product.identifier}) {
                 order.quantity = order.quantity + 1
             } else {
@@ -169,4 +169,4 @@ extension LuckyShop {
     
     typealias Catalog = [Category]
     
-}
+//}

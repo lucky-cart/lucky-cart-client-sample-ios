@@ -34,11 +34,11 @@ struct ShopView: View {
     
     @EnvironmentObject var shop: LuckyShop
     
-    var displayedCategories: [LuckyShop.Category] {
+    var displayedCategories: [Category] {
         return Array(shop.catalog)
     }
     
-    @State var orders = [LuckyShop.Order]()
+    @State var orders = [Order]()
     
     @State var selectedTab: String = "browser"
     

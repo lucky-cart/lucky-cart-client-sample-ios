@@ -11,7 +11,7 @@ import SwiftUI
 /// A view that displays a generic shop item ( name and image )
 struct CategoryView: View {
     
-    @State var item: LuckyShop.ShopItem
+    @State var item: ShopItem
     
     var body: some View {
         ZStack {
@@ -28,6 +28,6 @@ struct CategoryView: View {
 
 struct ShopItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(item: LuckyShop.Brand(name:"Test Item", identifier: "testItem"))
+        CategoryView(item: Brand(name:"Test Item", identifier: "testItem"))
     }
 }

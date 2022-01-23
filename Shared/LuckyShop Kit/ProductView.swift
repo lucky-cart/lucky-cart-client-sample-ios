@@ -13,7 +13,7 @@ struct ProductView: View {
     
     @EnvironmentObject var shop: LuckyShop
     
-    @State var item: LuckyShop.Product
+    @State var item: Product
 
     @State var banner: LCBanner?
 

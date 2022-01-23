@@ -17,9 +17,9 @@ struct ShoppingView: View, BannerSpaceView {
     
     @EnvironmentObject var shop: LuckyShop
     
-    @State var displayedCategories: [LuckyShop.Category]
+    @State var displayedCategories: [Category]
     
-    @State var selectedCategory = Set([LuckyShop.Category]())
+    @State var selectedCategory = Set([Category]())
     
     @State var numberOfProducts: Int = 0
     
