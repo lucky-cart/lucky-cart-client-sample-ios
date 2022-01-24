@@ -61,8 +61,8 @@
 		BCC5A49E2794BF5600407C8D /* CategoryBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A49C2794BF5600407C8D /* CategoryBrowser.swift */; };
 		BCC5A4A42794F09000407C8D /* CartPaidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A32794F09000407C8D /* CartPaidView.swift */; };
 		BCC5A4A52794F09000407C8D /* CartPaidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A32794F09000407C8D /* CartPaidView.swift */; };
-		BCC5A4A72794F96A00407C8D /* ActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A62794F96A00407C8D /* ActionsView.swift */; };
-		BCC5A4A82794F96A00407C8D /* ActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A62794F96A00407C8D /* ActionsView.swift */; };
+		BCC5A4A72794F96A00407C8D /* ButtonsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A62794F96A00407C8D /* ButtonsBarView.swift */; };
+		BCC5A4A82794F96A00407C8D /* ButtonsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A62794F96A00407C8D /* ButtonsBarView.swift */; };
 		BCC5A4AA279507B900407C8D /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A9279507B900407C8D /* HomePageView.swift */; };
 		BCC5A4AB279507B900407C8D /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A9279507B900407C8D /* HomePageView.swift */; };
 		BCCD68732796F4740053424E /* LuckyCart in Frameworks */ = {isa = PBXBuildFile; productRef = BCCD68722796F4740053424E /* LuckyCart */; };
@@ -124,7 +124,7 @@
 		BCC5A4962794B32A00407C8D /* LuckyShop+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuckyShop+Model.swift"; sourceTree = "<group>"; };
 		BCC5A49C2794BF5600407C8D /* CategoryBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBrowser.swift; sourceTree = "<group>"; };
 		BCC5A4A32794F09000407C8D /* CartPaidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPaidView.swift; sourceTree = "<group>"; };
-		BCC5A4A62794F96A00407C8D /* ActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsView.swift; sourceTree = "<group>"; };
+		BCC5A4A62794F96A00407C8D /* ButtonsBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsBarView.swift; sourceTree = "<group>"; };
 		BCC5A4A9279507B900407C8D /* HomePageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		BCC5A4AD27950B4C00407C8D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,7 +281,7 @@
 		BCCD68762796F4C80053424E /* LuckyShop Kit */ = {
 			isa = PBXGroup;
 			children = (
-				BCC5A4A62794F96A00407C8D /* ActionsView.swift */,
+				BCC5A4A62794F96A00407C8D /* ButtonsBarView.swift */,
 				BCC5A4932794773F00407C8D /* ProductView.swift */,
 				BCC1EE1F279AF060003AB2EA /* LogInOutButton.swift */,
 				BCC5A471279441C900407C8D /* CategoryView.swift */,
@@ -486,7 +486,7 @@
 				BCC5A4662794345000407C8D /* LuckyShop+Catalog.swift in Sources */,
 				BCC1EE20279AF060003AB2EA /* LogInOutButton.swift in Sources */,
 				BCC5A472279441C900407C8D /* CategoryView.swift in Sources */,
-				BCC5A4A72794F96A00407C8D /* ActionsView.swift in Sources */,
+				BCC5A4A72794F96A00407C8D /* ButtonsBarView.swift in Sources */,
 				BCC5A46C2794417D00407C8D /* ShoppingView.swift in Sources */,
 				BCC5A4972794B32A00407C8D /* LuckyShop+Model.swift in Sources */,
 				BCC5A4A42794F09000407C8D /* CartPaidView.swift in Sources */,
@@ -508,7 +508,7 @@
 				BCC5A4672794345000407C8D /* LuckyShop+Catalog.swift in Sources */,
 				BCC1EE21279AF060003AB2EA /* LogInOutButton.swift in Sources */,
 				BCC5A473279441C900407C8D /* CategoryView.swift in Sources */,
-				BCC5A4A82794F96A00407C8D /* ActionsView.swift in Sources */,
+				BCC5A4A82794F96A00407C8D /* ButtonsBarView.swift in Sources */,
 				BCC5A46D2794417D00407C8D /* ShoppingView.swift in Sources */,
 				BCC5A4982794B32A00407C8D /* LuckyShop+Model.swift in Sources */,
 				BCC5A4A52794F09000407C8D /* CartPaidView.swift in Sources */,

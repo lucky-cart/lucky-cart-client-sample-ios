@@ -25,6 +25,7 @@ struct CategoryBrowser: View {
         List(products) { product in
             ProductView(item: product, bannerSpaceIdentifier: bannerSpaceIdentifier)
         }
+        
         .navigationTitle(category.name)
     }
 }

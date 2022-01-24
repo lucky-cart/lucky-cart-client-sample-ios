@@ -119,4 +119,20 @@ class LuckyShop: ObservableObject, LuckyCartClient {
         self.cart.paid = true
     }
     
+    
+    /// randomize
+    ///
+    /// This function is for debugging purpose, to have a filled cart in one-click
+    func randomize() {
+        func r(_ max: Int) -> Int { return 1 + Int(arc4random()) % max }
+        let cart = Cart()
+        // Add some random products
+        for i in 0 ..< r(10) {
+            let cat = catalog[r(catalog.count - 1)]
+            let prod = cat.products[r(cat.products.count - 1)]
+            cart.add(product: prod)
+        }
+        self.cart = cart
+    }
+
 }

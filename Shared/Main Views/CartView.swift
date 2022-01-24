@@ -32,6 +32,7 @@ struct CartView: View {
                     }
                 }
             }
+            
             .navigationTitle("Cart")
             .onReceive(shop.cart.$productOrders) { orders in
                 self.orders = orders
@@ -48,7 +49,7 @@ struct CartView: View {
                 Text(priceString)
             }.padding()
         
-        ActionsView(numberOfProducts: $numberOfProducts, action: ("Pay", { response in
+        ButtonsBarView(numberOfProducts: $numberOfProducts, action: ("Pay", { response in
             shop.checkOut { error in
                 
             } success: { response in

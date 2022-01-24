@@ -45,7 +45,7 @@ struct ShoppingView: View, BannerSpaceView {
             }
         }
         
-        ActionsView(numberOfProducts: $numberOfProducts, action: ("Check Out", { response in
+        ButtonsBarView(numberOfProducts: $numberOfProducts, action: ("Check Out", { response in
             shop.selectedView = "cart"
         })).padding()
             .onReceive(shop.cart.$totalNumberOfProducts) { numberOfProducts in

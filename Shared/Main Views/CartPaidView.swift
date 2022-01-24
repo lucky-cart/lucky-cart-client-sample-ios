@@ -20,6 +20,7 @@ struct CartPaidView: View, GamesView {
     @State var games: [LCGame] = []
     
     var action: (()->Void)
+    @State var timeStamp: Date = Date()
     
     var body: some View {
         HStack {
@@ -34,7 +35,7 @@ struct CartPaidView: View, GamesView {
                 //MARK: - Display LuckyCart Games
                 
                 List($games) { game in
-                    LCGameView(game: game.wrappedValue)
+                    LCGameView(game: game)
                     .modifier(LCGameResultViewModifier(gameResult: game.gameResult.wrappedValue))
                     .frame(minWidth: nil, idealWidth: nil, maxWidth: nil,
                            minHeight: 30, idealHeight: 240, maxHeight: 300)
@@ -47,6 +48,7 @@ struct CartPaidView: View, GamesView {
 
         .onReceive(LuckyCart.shared.$games, perform: { games in
             self.games = games ?? []
+            self.timeStamp = Date()
         })
         .task {
             
