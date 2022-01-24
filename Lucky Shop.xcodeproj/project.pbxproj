@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC3E7441279EBEB8009ACD30 /* Lucky_ShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3E7440279EBEB8009ACD30 /* Lucky_ShopApp.swift */; };
+		BC3E7445279EBEBA009ACD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC3E7444279EBEBA009ACD30 /* Assets.xcassets */; };
+		BC3E7448279EBEBA009ACD30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC3E7447279EBEBA009ACD30 /* Preview Assets.xcassets */; };
+		BC3E7452279EBEBA009ACD30 /* Lucky_ShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3E7451279EBEBA009ACD30 /* Lucky_ShopTests.swift */; };
+		BC3E745C279EBEBA009ACD30 /* Lucky_ShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3E745B279EBEBA009ACD30 /* Lucky_ShopUITests.swift */; };
+		BC3E745E279EBEBA009ACD30 /* Lucky_ShopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3E745D279EBEBA009ACD30 /* Lucky_ShopUITestsLaunchTests.swift */; };
+		BC3E7468279EBF33009ACD30 /* LuckyShop+Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4652794345000407C8D /* LuckyShop+Catalog.swift */; };
+		BC3E7469279EBF33009ACD30 /* LuckyShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4622794311700407C8D /* LuckyShop.swift */; };
+		BC3E746A279EBF33009ACD30 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A46E2794418C00407C8D /* CartView.swift */; };
+		BC3E746B279EBF33009ACD30 /* CartPaidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A32794F09000407C8D /* CartPaidView.swift */; };
+		BC3E746C279EBF33009ACD30 /* LuckyShop+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4962794B32A00407C8D /* LuckyShop+Model.swift */; };
+		BC3E746D279EBF33009ACD30 /* LogInOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC1EE1F279AF060003AB2EA /* LogInOutButton.swift */; };
+		BC3E746E279EBF33009ACD30 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A471279441C900407C8D /* CategoryView.swift */; };
+		BC3E746F279EBF33009ACD30 /* ButtonsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A62794F96A00407C8D /* ButtonsBarView.swift */; };
+		BC3E7470279EBF33009ACD30 /* CategoryBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A49C2794BF5600407C8D /* CategoryBrowser.swift */; };
+		BC3E7471279EBF33009ACD30 /* LuckyShop+LuckyCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5BDBF62795E82300BAC3FE /* LuckyShop+LuckyCart.swift */; };
+		BC3E7472279EBF33009ACD30 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4932794773F00407C8D /* ProductView.swift */; };
+		BC3E7473279EBF33009ACD30 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A427279430F300407C8D /* ShopView.swift */; };
+		BC3E7474279EBF33009ACD30 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A4A9279507B900407C8D /* HomePageView.swift */; };
+		BC3E7475279EBF33009ACD30 /* ShoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A46B2794417D00407C8D /* ShoppingView.swift */; };
+		BC3E7476279EBF73009ACD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC5A428279430F400407C8D /* Assets.xcassets */; };
+		BC3E7478279EBF7F009ACD30 /* LuckyCart in Frameworks */ = {isa = PBXBuildFile; productRef = BC3E7477279EBF7F009ACD30 /* LuckyCart */; };
 		BC5BDBF72795E82300BAC3FE /* LuckyShop+LuckyCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5BDBF62795E82300BAC3FE /* LuckyShop+LuckyCart.swift */; };
 		BC5BDBF82795E82300BAC3FE /* LuckyShop+LuckyCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5BDBF62795E82300BAC3FE /* LuckyShop+LuckyCart.swift */; };
 		BC5BDC0F2796E90F00BAC3FE /* luckyCartGame.png in Resources */ = {isa = PBXBuildFile; fileRef = BC5BDC0D2796E90F00BAC3FE /* luckyCartGame.png */; };
@@ -70,6 +92,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BC3E744E279EBEBA009ACD30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCC5A421279430F300407C8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC3E743D279EBEB8009ACD30;
+			remoteInfo = "Lucky Shop";
+		};
+		BC3E7458279EBEBA009ACD30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCC5A421279430F300407C8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC3E743D279EBEB8009ACD30;
+			remoteInfo = "Lucky Shop";
+		};
 		BCC5A43B279430F400407C8D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BCC5A421279430F300407C8D /* Project object */;
@@ -88,6 +124,15 @@
 
 /* Begin PBXFileReference section */
 		BC1B4D4A27980BCF00B5F041 /* ClientAppDocumentationHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClientAppDocumentationHeader.png; sourceTree = "<group>"; };
+		BC3E743E279EBEB8009ACD30 /* Lucky Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lucky Shop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC3E7440279EBEB8009ACD30 /* Lucky_ShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lucky_ShopApp.swift; sourceTree = "<group>"; };
+		BC3E7444279EBEBA009ACD30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC3E7447279EBEBA009ACD30 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BC3E744D279EBEBA009ACD30 /* Lucky ShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lucky ShopTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC3E7451279EBEBA009ACD30 /* Lucky_ShopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lucky_ShopTests.swift; sourceTree = "<group>"; };
+		BC3E7457279EBEBA009ACD30 /* Lucky ShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lucky ShopUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC3E745B279EBEBA009ACD30 /* Lucky_ShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lucky_ShopUITests.swift; sourceTree = "<group>"; };
+		BC3E745D279EBEBA009ACD30 /* Lucky_ShopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lucky_ShopUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BC5BDBF62795E82300BAC3FE /* LuckyShop+LuckyCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuckyShop+LuckyCart.swift"; sourceTree = "<group>"; };
 		BC5BDBF92795F63900BAC3FE /* Lucky-Shop--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lucky-Shop--Info.plist"; sourceTree = "<group>"; };
 		BC5BDC0D2796E90F00BAC3FE /* luckyCartGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = luckyCartGame.png; sourceTree = "<group>"; };
@@ -130,6 +175,28 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BC3E743B279EBEB8009ACD30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC3E7478279EBF7F009ACD30 /* LuckyCart in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC3E744A279EBEBA009ACD30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC3E7454279EBEBA009ACD30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BCC5A42A279430F400407C8D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -163,6 +230,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC3E743F279EBEB8009ACD30 /* Lucky Shop */ = {
+			isa = PBXGroup;
+			children = (
+				BC3E7440279EBEB8009ACD30 /* Lucky_ShopApp.swift */,
+				BC3E7444279EBEBA009ACD30 /* Assets.xcassets */,
+				BC3E7446279EBEBA009ACD30 /* Preview Content */,
+			);
+			path = "Lucky Shop";
+			sourceTree = "<group>";
+		};
+		BC3E7446279EBEBA009ACD30 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BC3E7447279EBEBA009ACD30 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BC3E7450279EBEBA009ACD30 /* Lucky ShopTests */ = {
+			isa = PBXGroup;
+			children = (
+				BC3E7451279EBEBA009ACD30 /* Lucky_ShopTests.swift */,
+			);
+			path = "Lucky ShopTests";
+			sourceTree = "<group>";
+		};
+		BC3E745A279EBEBA009ACD30 /* Lucky ShopUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BC3E745B279EBEBA009ACD30 /* Lucky_ShopUITests.swift */,
+				BC3E745D279EBEBA009ACD30 /* Lucky_ShopUITestsLaunchTests.swift */,
+			);
+			path = "Lucky ShopUITests";
+			sourceTree = "<group>";
+		};
 		BCC1EE1A279AE821003AB2EA /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +284,9 @@
 				BCC5A434279430F400407C8D /* macOS */,
 				BCC5A43D279430F400407C8D /* Tests iOS */,
 				BCC5A449279430F400407C8D /* Tests macOS */,
+				BC3E743F279EBEB8009ACD30 /* Lucky Shop */,
+				BC3E7450279EBEBA009ACD30 /* Lucky ShopTests */,
+				BC3E745A279EBEBA009ACD30 /* Lucky ShopUITests */,
 				BCC5A42E279430F400407C8D /* Products */,
 				BCC5A4902794751100407C8D /* Frameworks */,
 			);
@@ -210,6 +315,9 @@
 				BCC5A433279430F400407C8D /* Lucky Shop.app */,
 				BCC5A43A279430F400407C8D /* Tests iOS.xctest */,
 				BCC5A446279430F400407C8D /* Tests macOS.xctest */,
+				BC3E743E279EBEB8009ACD30 /* Lucky Shop.app */,
+				BC3E744D279EBEBA009ACD30 /* Lucky ShopTests.xctest */,
+				BC3E7457279EBEBA009ACD30 /* Lucky ShopUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -292,6 +400,62 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BC3E743D279EBEB8009ACD30 /* Lucky Shop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC3E7465279EBEBA009ACD30 /* Build configuration list for PBXNativeTarget "Lucky Shop" */;
+			buildPhases = (
+				BC3E743A279EBEB8009ACD30 /* Sources */,
+				BC3E743B279EBEB8009ACD30 /* Frameworks */,
+				BC3E743C279EBEB8009ACD30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Lucky Shop";
+			packageProductDependencies = (
+				BC3E7477279EBF7F009ACD30 /* LuckyCart */,
+			);
+			productName = "Lucky Shop";
+			productReference = BC3E743E279EBEB8009ACD30 /* Lucky Shop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BC3E744C279EBEBA009ACD30 /* Lucky ShopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC3E7466279EBEBA009ACD30 /* Build configuration list for PBXNativeTarget "Lucky ShopTests" */;
+			buildPhases = (
+				BC3E7449279EBEBA009ACD30 /* Sources */,
+				BC3E744A279EBEBA009ACD30 /* Frameworks */,
+				BC3E744B279EBEBA009ACD30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC3E744F279EBEBA009ACD30 /* PBXTargetDependency */,
+			);
+			name = "Lucky ShopTests";
+			productName = "Lucky ShopTests";
+			productReference = BC3E744D279EBEBA009ACD30 /* Lucky ShopTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BC3E7456279EBEBA009ACD30 /* Lucky ShopUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC3E7467279EBEBA009ACD30 /* Build configuration list for PBXNativeTarget "Lucky ShopUITests" */;
+			buildPhases = (
+				BC3E7453279EBEBA009ACD30 /* Sources */,
+				BC3E7454279EBEBA009ACD30 /* Frameworks */,
+				BC3E7455279EBEBA009ACD30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC3E7459279EBEBA009ACD30 /* PBXTargetDependency */,
+			);
+			name = "Lucky ShopUITests";
+			productName = "Lucky ShopUITests";
+			productReference = BC3E7457279EBEBA009ACD30 /* Lucky ShopUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		BCC5A42C279430F400407C8D /* Lucky Shop (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCC5A456279430F400407C8D /* Build configuration list for PBXNativeTarget "Lucky Shop (iOS)" */;
@@ -378,6 +542,17 @@
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					BC3E743D279EBEB8009ACD30 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					BC3E744C279EBEBA009ACD30 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = BC3E743D279EBEB8009ACD30;
+					};
+					BC3E7456279EBEBA009ACD30 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = BC3E743D279EBEB8009ACD30;
+					};
 					BCC5A42C279430F400407C8D = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -414,11 +589,38 @@
 				BCC5A432279430F400407C8D /* Lucky Shop (macOS) */,
 				BCC5A439279430F400407C8D /* Tests iOS */,
 				BCC5A445279430F400407C8D /* Tests macOS */,
+				BC3E743D279EBEB8009ACD30 /* Lucky Shop */,
+				BC3E744C279EBEBA009ACD30 /* Lucky ShopTests */,
+				BC3E7456279EBEBA009ACD30 /* Lucky ShopUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BC3E743C279EBEB8009ACD30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC3E7448279EBEBA009ACD30 /* Preview Assets.xcassets in Resources */,
+				BC3E7476279EBF73009ACD30 /* Assets.xcassets in Resources */,
+				BC3E7445279EBEBA009ACD30 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC3E744B279EBEBA009ACD30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC3E7455279EBEBA009ACD30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BCC5A42B279430F400407C8D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -474,6 +676,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BC3E743A279EBEB8009ACD30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC3E7475279EBF33009ACD30 /* ShoppingView.swift in Sources */,
+				BC3E746A279EBF33009ACD30 /* CartView.swift in Sources */,
+				BC3E7469279EBF33009ACD30 /* LuckyShop.swift in Sources */,
+				BC3E7473279EBF33009ACD30 /* ShopView.swift in Sources */,
+				BC3E746F279EBF33009ACD30 /* ButtonsBarView.swift in Sources */,
+				BC3E7474279EBF33009ACD30 /* HomePageView.swift in Sources */,
+				BC3E746B279EBF33009ACD30 /* CartPaidView.swift in Sources */,
+				BC3E7468279EBF33009ACD30 /* LuckyShop+Catalog.swift in Sources */,
+				BC3E7472279EBF33009ACD30 /* ProductView.swift in Sources */,
+				BC3E746D279EBF33009ACD30 /* LogInOutButton.swift in Sources */,
+				BC3E7471279EBF33009ACD30 /* LuckyShop+LuckyCart.swift in Sources */,
+				BC3E7470279EBF33009ACD30 /* CategoryBrowser.swift in Sources */,
+				BC3E746C279EBF33009ACD30 /* LuckyShop+Model.swift in Sources */,
+				BC3E7441279EBEB8009ACD30 /* Lucky_ShopApp.swift in Sources */,
+				BC3E746E279EBF33009ACD30 /* CategoryView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC3E7449279EBEBA009ACD30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC3E7452279EBEBA009ACD30 /* Lucky_ShopTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC3E7453279EBEBA009ACD30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC3E745C279EBEBA009ACD30 /* Lucky_ShopUITests.swift in Sources */,
+				BC3E745E279EBEBA009ACD30 /* Lucky_ShopUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BCC5A429279430F400407C8D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -539,6 +780,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BC3E744F279EBEBA009ACD30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC3E743D279EBEB8009ACD30 /* Lucky Shop */;
+			targetProxy = BC3E744E279EBEBA009ACD30 /* PBXContainerItemProxy */;
+		};
+		BC3E7459279EBEBA009ACD30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC3E743D279EBEB8009ACD30 /* Lucky Shop */;
+			targetProxy = BC3E7458279EBEBA009ACD30 /* PBXContainerItemProxy */;
+		};
 		BCC5A43C279430F400407C8D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BCC5A42C279430F400407C8D /* Lucky Shop (iOS) */;
@@ -552,6 +803,167 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		BC3E745F279EBEBA009ACD30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Lucky Shop/Preview Content\"";
+				DEVELOPMENT_TEAM = VMXFN634RR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.luckycart.Lucky-Shop";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Debug;
+		};
+		BC3E7460279EBEBA009ACD30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Lucky Shop/Preview Content\"";
+				DEVELOPMENT_TEAM = VMXFN634RR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.luckycart.Lucky-Shop";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC3E7461279EBEBA009ACD30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VMXFN634RR;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.luckycart.Lucky-ShopTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lucky Shop.app/Lucky Shop";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Debug;
+		};
+		BC3E7462279EBEBA009ACD30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VMXFN634RR;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.luckycart.Lucky-ShopTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lucky Shop.app/Lucky Shop";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC3E7463279EBEBA009ACD30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VMXFN634RR;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.luckycart.Lucky-ShopUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = "Lucky Shop";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Debug;
+		};
+		BC3E7464279EBEBA009ACD30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VMXFN634RR;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.luckycart.Lucky-ShopUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = "Lucky Shop";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		BCC5A454279430F400407C8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -888,6 +1300,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BC3E7465279EBEBA009ACD30 /* Build configuration list for PBXNativeTarget "Lucky Shop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC3E745F279EBEBA009ACD30 /* Debug */,
+				BC3E7460279EBEBA009ACD30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC3E7466279EBEBA009ACD30 /* Build configuration list for PBXNativeTarget "Lucky ShopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC3E7461279EBEBA009ACD30 /* Debug */,
+				BC3E7462279EBEBA009ACD30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC3E7467279EBEBA009ACD30 /* Build configuration list for PBXNativeTarget "Lucky ShopUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC3E7463279EBEBA009ACD30 /* Debug */,
+				BC3E7464279EBEBA009ACD30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BCC5A424279430F300407C8D /* Build configuration list for PBXProject "Lucky Shop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -947,6 +1386,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BC3E7477279EBF7F009ACD30 /* LuckyCart */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LuckyCart;
+		};
 		BCCD68722796F4740053424E /* LuckyCart */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BCC5A4682794405C00407C8D /* XCRemoteSwiftPackageReference "lucky-cart-ios" */;
