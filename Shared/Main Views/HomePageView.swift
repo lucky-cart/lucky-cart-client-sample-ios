@@ -25,10 +25,9 @@ struct HomePageView: BannerSpaceView {
                 Text("Welcome")
                 
                 List(banners) { banner in
-                    LCBannerView(banner: banner)
+                    LCSimpleBannerView(banner: banner)
                 }
                 HStack {
-                    LogInOutButton()
                     Button("Start Shopping") {
                         action?()
                     }

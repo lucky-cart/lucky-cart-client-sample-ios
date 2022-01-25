@@ -30,6 +30,7 @@ struct ShopView: View {
         case homepage
         case shopping
         case paid
+        case boutique(identifier: LCBoutiqueViewIdentifier)
     }
     
     @EnvironmentObject var shop: LuckyShop
@@ -49,19 +50,36 @@ struct ShopView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
             HStack {
+                LogInOutButton().scaleEffect(CGSize(width: 0.7, height: 0.7))
                 Text("LuckyCart Customer : \(LuckyCart.shared.customer.id)").font(.caption)
+                Spacer()
             }
             switch page {
+                
+                // MARK: - Homepage / Welcome
+                
             case .homepage:
                 HomePageView() {
                     shop.newCart()
                     page = .shopping
                     selectedTab = "browser"
                 }
+                
+                // MARK: - Boutique View
+                
+            case .boutique(let targetId):
+                BoutiqueView(boutiquePageIdentifier: targetId) {
+                    page = .shopping
+                }
+                
+                // MARK: - Paid View ( Succesful checkout )
+                
             case .paid:
                 CartPaidView() {
                     page = .homepage
                 }
+                
+                // MARK: - Shopping view ( Tabbed view Browse/Cart )
                 
             case .shopping:
                 TabView(selection: $selectedTab) {
@@ -97,6 +115,15 @@ struct ShopView: View {
         }
         .onReceive(shop.$customer) { cart in
             customerId = shop.customer?.id.uuidString
+        }
+        .onAppear() {
+            let _ = NotificationCenter.default.addObserver(forName: .bannerAction, object: nil, queue: nil) { notif in
+                guard let dictionary = notif.userInfo as? [String: String],
+                      let ref = dictionary[Keys.ref], !ref.isEmpty else {
+                          return
+                      }
+                page = .boutique(identifier: LCBoutiqueViewIdentifier(ref))
+            }
         }
         .padding()
     }

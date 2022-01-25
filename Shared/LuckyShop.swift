@@ -9,9 +9,11 @@
 import Foundation
 import LuckyCart
 
-/// LuckyShop is a sample applications that demonstrates how to integrate LuckyCart with a native shopping application.
+/// LuckyShop is a shop manager example that demonstrates how to integrate LuckyCart with a native shopping application.
 ///
-/// Lucky shop has :
+/// LuckyShop covers the primitive needs of any shopping application.
+///
+/// It is defined by:
 /// - a catalog (`Catalog`) that holds a dictionary of products (`Product`) keyed by categories (Category).
 /// - a customer (`Customer`) that holds current customer information
 /// - a cart (`Cart`) that manages the current order
@@ -19,8 +21,9 @@ import LuckyCart
 /// This covers the main entities and functions any online shop is expected to have, more or less.
 
 class LuckyShop: ObservableObject, LuckyCartClient {
-        
+    
     var shopId = "2022_luckyshop"
+    
     var currency: String = "EUR"
     
     /// The user customer data
@@ -36,14 +39,17 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     /// Your catalog manager
     ///
     /// Returns the categories and products for the shop
+    
     lazy var catalog: Catalog = TestCatalog.catalog
     
     /// Custom shop data example
+    
     var luckyCoupon: String = ""
     
     /// Your cart manager
     ///
     /// Value is published, so UI can be refreshed when a new cart is set
+    
     @Published var cart: Cart = Cart()
     
     /// Sample app can display different views.
@@ -51,7 +57,7 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     ///
     /// Value is published, so the UI can refresh accordingly
     @Published var selectedView: String = "homepage"
-
+    
     // MARK: - Initialisation
     
     /// init
@@ -62,12 +68,13 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     init() {
         initLuckyCart()
     }
-
-    // MARK: - Functions
-
+    
+    // MARK: - Shop Functions
+    
     /// loggedIn
     ///
     /// - returns: True if a customer is set
+    
     var loggedIn: Bool {
         customer != nil
     }
@@ -78,14 +85,15 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     ///
     /// Note that in this example, the login function always succeed since it uses hardcoded test data
     /// In the real world, you will probably need to connect to your system
+    
     func login() {
         customer = Customer.test
     }
     
-    
     /// login
     ///
     /// Sets a nil user. ( current customer )
+    
     func logout() {
         customer = nil
     }
@@ -93,6 +101,7 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     /// Your cart creation function
     ///
     /// The right place to initialise a LuckyCart cart
+    
     func newCart() {
         cart = Cart()
         LuckyCart.shared.newCart()
@@ -101,38 +110,47 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     /// The check out request - in this sample, there is no network call. We simply call the success closure.
     ///
     /// In the real world, you probably need to send a request.
+    
     func checkOut(failure: @escaping (Error) -> Void, success: @escaping (Any?) -> Void) {
-        
-        // Execute your checkout request here
-        // Then proceed to LuckCart checkOut
-        
-        LuckyCart.shared.checkOut(ticketComposer: ticketComposerForLuckyCart,
-                                  failure: failure) { postCartResponse in
-            success(postCartResponse)
+        do {
+            let ticket = try luckyCartTicket(cartId: cart.id.uuidString)
+            
+            // Execute your checkout request here
+            // Then proceed to LuckCart checkOut
+            
+            LuckyCart.shared.checkOut(ticketComposer: ticket,
+                                      failure: failure) { postCartResponse in
+                success(postCartResponse)
+            }
+        }
+        catch {
+            failure(error)
         }
     }
     
     /// When the cart is paid
     ///
-    ///
+    /// Sets the paid property to true. Cart being published, the app will be able to subscribe to the change
+    /// and update accordingly
+    
     func aknowledgePayment() {
+        
         self.cart.paid = true
     }
-    
     
     /// randomize
     ///
     /// This function is for debugging purpose, to have a filled cart in one-click
+    
     func randomize() {
         func r(_ max: Int) -> Int { return 1 + Int(arc4random()) % max }
         let cart = Cart()
         // Add some random products
-        for i in 0 ..< r(10) {
+        for _ in 0 ..< r(10) {
             let cat = catalog[r(catalog.count - 1)]
             let prod = cat.products[r(cat.products.count - 1)]
             cart.add(product: prod)
         }
         self.cart = cart
     }
-
 }

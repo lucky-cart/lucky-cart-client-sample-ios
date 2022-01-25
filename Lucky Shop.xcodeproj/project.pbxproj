@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC09BFE927A001860027DB15 /* BoutiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09BFE827A001860027DB15 /* BoutiqueView.swift */; };
+		BC09BFEA27A001860027DB15 /* BoutiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09BFE827A001860027DB15 /* BoutiqueView.swift */; };
 		BC5BDBF72795E82300BAC3FE /* LuckyShop+LuckyCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5BDBF62795E82300BAC3FE /* LuckyShop+LuckyCart.swift */; };
 		BC5BDBF82795E82300BAC3FE /* LuckyShop+LuckyCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5BDBF62795E82300BAC3FE /* LuckyShop+LuckyCart.swift */; };
 		BC5BDC0F2796E90F00BAC3FE /* luckyCartGame.png in Resources */ = {isa = PBXBuildFile; fileRef = BC5BDC0D2796E90F00BAC3FE /* luckyCartGame.png */; };
@@ -87,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC09BFE827A001860027DB15 /* BoutiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueView.swift; sourceTree = "<group>"; };
 		BC1B4D4A27980BCF00B5F041 /* ClientAppDocumentationHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClientAppDocumentationHeader.png; sourceTree = "<group>"; };
 		BC5BDBF62795E82300BAC3FE /* LuckyShop+LuckyCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuckyShop+LuckyCart.swift"; sourceTree = "<group>"; };
 		BC5BDBF92795F63900BAC3FE /* Lucky-Shop--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lucky-Shop--Info.plist"; sourceTree = "<group>"; };
@@ -272,6 +275,7 @@
 				BCC5A4A9279507B900407C8D /* HomePageView.swift */,
 				BCC5A46B2794417D00407C8D /* ShoppingView.swift */,
 				BCC5A49C2794BF5600407C8D /* CategoryBrowser.swift */,
+				BC09BFE827A001860027DB15 /* BoutiqueView.swift */,
 				BCC5A46E2794418C00407C8D /* CartView.swift */,
 				BCC5A4A32794F09000407C8D /* CartPaidView.swift */,
 			);
@@ -484,6 +488,7 @@
 				BCC5A450279430F400407C8D /* ShopView.swift in Sources */,
 				BCC5A44E279430F400407C8D /* LuckyShopApp.swift in Sources */,
 				BCC5A4662794345000407C8D /* LuckyShop+Catalog.swift in Sources */,
+				BC09BFE927A001860027DB15 /* BoutiqueView.swift in Sources */,
 				BCC1EE20279AF060003AB2EA /* LogInOutButton.swift in Sources */,
 				BCC5A472279441C900407C8D /* CategoryView.swift in Sources */,
 				BCC5A4A72794F96A00407C8D /* ButtonsBarView.swift in Sources */,
@@ -506,6 +511,7 @@
 				BCC5A451279430F400407C8D /* ShopView.swift in Sources */,
 				BCC5A44F279430F400407C8D /* LuckyShopApp.swift in Sources */,
 				BCC5A4672794345000407C8D /* LuckyShop+Catalog.swift in Sources */,
+				BC09BFEA27A001860027DB15 /* BoutiqueView.swift in Sources */,
 				BCC1EE21279AF060003AB2EA /* LogInOutButton.swift in Sources */,
 				BCC5A473279441C900407C8D /* CategoryView.swift in Sources */,
 				BCC5A4A82794F96A00407C8D /* ButtonsBarView.swift in Sources */,

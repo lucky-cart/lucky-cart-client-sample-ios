@@ -51,4 +51,14 @@ extension Array where Element == Category {
         }
         return nil
     }
+    
+    func products(with brand: Brand) -> [Product] {
+        var out = [Product]()
+        for category in self {
+            let products = category.products.filter({$0.brand == brand})
+            out.append(contentsOf: products)
+        }
+        return out
+    }
+
 }

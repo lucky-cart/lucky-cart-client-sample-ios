@@ -19,7 +19,7 @@ struct LogInOutButton: View {
             }
         }
         .font(.caption)
-        .modifier(ShopButtonModifier(color: .blue))
+        .modifier(ShopButtonModifier(color: shop.loggedIn ? .red : .blue))
     }
 }
 

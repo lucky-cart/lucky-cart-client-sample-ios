@@ -22,13 +22,24 @@ extension LuckyShop {
         LuckyCart(authorization: LuckyCart.testAuthorization)
     }
     
-    func luckyCartTicket(cartId: String) -> LCTicketComposer {
+    /// luckyCartTicket
+    ///
+    /// Returns the checkout tickect composer for LuckyCart.
+    /// Once checkout is proceeded, create a `LCTicketComposer` object
+    /// by passing the following objects and properties:
+    /// - customer : *id, first name, last name, email
+    /// - cart: *id, currency, ttc, ht
+    /// - products: Array of products : *id, quantity, ttc, ht
+    /// - order: shippingMethod, shopId, device
+    /// - metaData : A free json dictionary
+
+    func luckyCartTicket(cartId: String) throws -> LCTicketComposer {
         
         let meta = LCTicketComposer.MetaData(dictionary: [
             "luckyCoupon" : luckyCoupon
         ])
         
-        let customer = LCTicketComposer.Customer(id: cartId,
+        let customer = LCTicketComposer.Customer(id: customer?.id.uuidString,
                                                  email: customer?.eMail,
                                                  firstName: customer?.firstName,
                                                  lastName: customer?.lastName)
@@ -52,19 +63,4 @@ extension LuckyShop {
         
         return LCTicketComposer(customer: customer, cart: cart, order: order, metaData: meta)
     }
-}
-// MARK: - Custom LuckyShop/LuckyCart utilities
-
-extension LuckyShop {
-    
-    /// Returns the banner identifier for a given product
-    func bannerIdentifier(for product: Product) -> LCBannerIdentifier? {
-        switch product.identifier {
-        case "ristretto":
-            return "banner_100"
-        default:
-            return nil
-        }
-    }
-    
 }
