@@ -34,20 +34,22 @@ class ShopItem: Identifiable, Hashable {
 
 
 class Customer {
-    var id = UUID()
+    var id: String = UUID().uuidString
     var lastName: String
     var firstName: String
     var phone: String
     var eMail: String
     var address: String
     
-    static let test = Customer(firstName: "Janine",
+    static let test = Customer(id: "customer1234",
+                               firstName: "Janine",
                                lastName: "Lemaire",
                                phone: "0620222022",
                                eMail: "janine@gmail.com",
                                address: "7 rue Saint-Anne, 75002, Paris")
     
-    public init(firstName: String, lastName: String, phone: String, eMail: String, address: String) {
+    public init(id: String, firstName: String, lastName: String, phone: String, eMail: String, address: String) {
+        self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.phone = phone

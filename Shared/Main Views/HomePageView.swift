@@ -10,7 +10,7 @@ import SwiftUI
 import LuckyCart
 
 struct HomePageView: BannerSpaceView {
-    var bannerSpaceId: LCBannerSpaceIdentifier = .homePage
+    var bannerSpaceId: LCBannerSpaceIdentifier = LuckyShop.homepage
     
     @EnvironmentObject var shop: LuckyShop
     
@@ -35,8 +35,9 @@ struct HomePageView: BannerSpaceView {
                 }
             }
         }.task {
-            LuckyCart.shared.banner(with: LCBannerIdentifier.banner,
+            LuckyCart.shared.banner(with: LCBannerIdentifier("banner"),
                                     bannerSpaceIdentifier: bannerSpaceId,
+                                    format: LuckyShop.bannerFormat,
                                     failure: { error in
             }) { banner in
                 banners.append(banner)

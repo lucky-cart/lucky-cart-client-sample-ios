@@ -114,15 +114,23 @@ struct ShopView: View {
             orders = cart.productOrders
         }
         .onReceive(shop.$customer) { cart in
-            customerId = shop.customer?.id.uuidString
+            customerId = shop.customer?.id
         }
         .onAppear() {
             let _ = NotificationCenter.default.addObserver(forName: .bannerAction, object: nil, queue: nil) { notif in
-                guard let dictionary = notif.userInfo as? [String: String],
-                      let ref = dictionary[Keys.ref], !ref.isEmpty else {
+                guard let dictionary = notif.userInfo as? [String: Any?],
+                      let ref = dictionary[Keys.ref] as? String, !ref.isEmpty,
+                      let actionType = dictionary[Keys.action] as? LCBannerActionType else {
                           return
                       }
-                page = .boutique(identifier: LCBoutiqueViewIdentifier(ref))
+                
+                switch actionType {
+                case .boutique:
+                    page = .boutique(identifier: LCBoutiqueViewIdentifier(ref))
+                    break
+                default:
+                    return
+                }
             }
         }
         .padding()

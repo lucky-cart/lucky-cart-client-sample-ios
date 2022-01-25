@@ -14,6 +14,14 @@ import LuckyCart
 
 extension LuckyShop {
     
+    /// The banner spaces identifier
+    public static let homepage = LCBannerSpaceIdentifier(rawValue: "homepage")
+    public static let categories = LCBannerSpaceIdentifier(rawValue: "categories")
+
+    public static let bannerFormat = LCBannerFormat(rawValue: "banner")
+    
+    public static let boutique = LCBoutiqueViewIdentifier(rawValue: "boutique")
+
     /// initLuckyCart
     ///
     /// Initialize LuckyCart with the shop authorization.
@@ -39,7 +47,7 @@ extension LuckyShop {
             "luckyCoupon" : luckyCoupon
         ])
         
-        let customer = LCTicketComposer.Customer(id: customer?.id.uuidString,
+        let customer = LCTicketComposer.Customer(id: customer?.id,
                                                  email: customer?.eMail,
                                                  firstName: customer?.firstName,
                                                  lastName: customer?.lastName)

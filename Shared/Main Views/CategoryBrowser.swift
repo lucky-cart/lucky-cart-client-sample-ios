@@ -56,7 +56,9 @@ struct CategoryBrowser: View {
             if let product = item.product {
                 ProductView(item: product)
             } else {
-                LCAsyncSimpleBannerView(bannerSpaceId: .homePage, bannerId: item.bannerId!)
+                LCAsyncSimpleBannerView(bannerSpaceId: LuckyShop.homepage,
+                                        bannerId: item.bannerId!,
+                                        format: LuckyShop.bannerFormat)
             }
         }
         

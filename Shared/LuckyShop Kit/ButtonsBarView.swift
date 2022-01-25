@@ -27,12 +27,12 @@ struct ShoppingButtonsBarView: View {
             if let numberOfProducts = numberOfProducts {
                 
                 if numberOfProducts > 0 {
-                    VStack(alignment: .trailing) {
+                    VStack(alignment: .leading) {
                         Text("\(numberOfProducts) Products").font(.caption)
                         Text("\(shop.cart.totalPriceString)").font(.caption)
                     }
                 } else {
-                    VStack(alignment: .trailing) {
+                    VStack(alignment: .leading) {
                         Text("Add Products To Cart").opacity(0.7).font(.caption)
                         Button("Auto-Fill Cart and Check Out") {
                             shop.randomize()
@@ -40,7 +40,7 @@ struct ShoppingButtonsBarView: View {
                         }.font(.caption2).multilineTextAlignment(.trailing)
                     }
                 }
-                
+                Spacer()
                 if numberOfProducts > 0 {
                     Button(action.0) {
                         action.1() { result in
