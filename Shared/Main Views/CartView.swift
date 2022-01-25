@@ -49,7 +49,7 @@ struct CartView: View {
                 Text(priceString)
             }.padding()
         
-        ButtonsBarView(numberOfProducts: $numberOfProducts, action: ("Pay", { response in
+            ShoppingButtonsBarView(numberOfProducts: $numberOfProducts, action: ("Pay", { response in
             shop.checkOut { error in
                 
             } success: { response in

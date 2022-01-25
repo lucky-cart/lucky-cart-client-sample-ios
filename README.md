@@ -74,8 +74,6 @@ Starts the LuckyCart framework using authorization, luckyCart customer and cart 
 class MyShopManager: LuckyCartClient {
 
     func initLuckyCart() {
-        _ = LuckyCart(authorization: LuckyCart.testAuthorization,
-
         let auth = LCAuthorization(key: <authKey>, secret: <secret>)
         let luckyCartCustomer = LCCustomer(<id>)
         let luckyCartCart = LCCart(<id>)

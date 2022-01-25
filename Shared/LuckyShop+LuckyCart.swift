@@ -14,103 +14,61 @@ import LuckyCart
 
 extension LuckyShop {
     
+    /// The banner spaces identifier
+    public static let homepage = LCBannerSpaceIdentifier(rawValue: "homepage")
+    public static let categories = LCBannerSpaceIdentifier(rawValue: "categories")
+
+    public static let bannerFormat = LCBannerFormat(rawValue: "banner")
+    
+    public static let boutique = LCBoutiqueViewIdentifier(rawValue: "boutique")
+
     /// initLuckyCart
     ///
     /// Initialize LuckyCart with the shop authorization.
-
+    
     func initLuckyCart() {
         LuckyCart(authorization: LuckyCart.testAuthorization)
     }
     
-    /// metaDataForLuckyCart
+    /// luckyCartTicket
     ///
-    /// Returns the optional meta information to send to LuckyCart
-    /// Meta are fully customizable by client.
-    ///
-    /// - returns: The customer ticket information `LCTicketComposer.Cart`
+    /// Returns the checkout tickect composer for LuckyCart.
+    /// Once checkout is proceeded, create a `LCTicketComposer` object
+    /// by passing the following objects and properties:
+    /// - customer : *id, first name, last name, email
+    /// - cart: *id, currency, ttc, ht
+    /// - products: Array of products : *id, quantity, ttc, ht
+    /// - order: shippingMethod, shopId, device
+    /// - metaData : A free json dictionary
 
-    var metaDataForLuckyCart: LCTicketComposer.MetaData {
-        LCTicketComposer.MetaData(dictionary: [
+    func luckyCartTicket(cartId: String) throws -> LCTicketComposer {
+        
+        let meta = LCTicketComposer.MetaData(dictionary: [
             "luckyCoupon" : luckyCoupon
         ])
-    }
-
-    /// customerForLuckyCart
-    ///
-    /// Returns the customer optional information to send to LuckyCart
-    /// - customer id in client database
-    /// - customer email
-    /// - customer first name
-    /// - customer last name
-    ///
-    /// - returns: The customer ticket information `LCTicketComposer.Cart`
-    
-    var customerForLuckyCart: LCTicketComposer.Customer {
-        LCTicketComposer.Customer(customerClientId: customer?.id.uuidString,
-                                  email: customer?.eMail,
-                                  firstName: customer?.firstName,
-                                  lastName: customer?.lastName)
-    }
-
-    /// cartForLuckyCart
-    ///
-    /// Returns the cart information to send to LuckyCart
-    /// - currency
-    /// - cart id in client database
-    /// - total price all tax included
-    /// - total price without tax
-    /// - products
-    ///
-    /// - returns: The cart ticket information `LCTicketComposer.Cart`
-
-    var cartForLuckyCart: LCTicketComposer.Cart {
-        LCTicketComposer.Cart(cartClientId: cart.id.uuidString,
-                              currency: currency,
-                              ttc: LCTicketComposer.priceString(cart.totalPrice),
-                              ht: LCTicketComposer.priceString(cart.totalPriceWithoutTax),
-                              products: productOrdersForLuckyCart)
-    }
-
-    /// orderForLuckyCart
-    ///
-    /// Returns the order information to send to LuckyCart
-    /// - shop id
-    /// - shipping method
-    /// - device
-    ///
-    /// - returns: The order ticket information `LCTicketComposer.Order`
-
-    var orderForLuckyCart: LCTicketComposer.Order {
-        LCTicketComposer.Order(shippingMethod: .pickUp, shopId: shopId, device: "ios-sim")
-    }
-    
-    /// productOrdersForLuckyCart
-    /// Returns the product orders information formatted for LuckyCart
-    ///
-    /// - returns: An array of product orders - `[LCTicketComposer.ProductOrder]`
-
-    var productOrdersForLuckyCart: [LCTicketComposer.ProductOrder] {
+        
+        let customer = LCTicketComposer.Customer(id: customer?.id,
+                                                 email: customer?.eMail,
+                                                 firstName: customer?.firstName,
+                                                 lastName: customer?.lastName)
+        
+        let productOrders: [LCTicketComposer.ProductOrder] =
         cart.productOrders.map { order in
             LCTicketComposer.ProductOrder(id: order.id.uuidString,
                                           quantity: "\(order.quantity)",
                                           ttc: LCTicketComposer.priceString(order.totalPrice),
                                           ht: LCTicketComposer.priceString(order.totalPriceWithoutTax))
         }
+        
+        let cart = LCTicketComposer.Cart(id: cart.id.uuidString,
+                                         currency: currency,
+                                         ttc: LCTicketComposer.priceString(cart.totalPrice),
+                                         ht: LCTicketComposer.priceString(cart.totalPriceWithoutTax),
+                                         products: productOrders)
+        
+        let order = LCTicketComposer.Order(shippingMethod: .pickUp, shopId: shopId, device: "ios-sim")
+        
+        
+        return LCTicketComposer(customer: customer, cart: cart, order: order, metaData: meta)
     }
-}
-
-// MARK: - Custom LuckyShop/LuckyCart utilities
-
-extension LuckyShop {
-    
-    /// Returns the banner identifier for a given product
-    func bannerIdentifier(for product: Product) -> LCBannerIdentifier? {
-        switch product.identifier {
-            case "ristretto":
-                return "banner_100"
-        default:
-            return nil
-        }
-    }
-
 }

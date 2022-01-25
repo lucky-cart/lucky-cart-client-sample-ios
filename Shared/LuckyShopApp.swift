@@ -12,20 +12,23 @@ import LuckyCart
 @main
 struct Lucky_ShopApp: App {
     
-    // Your shop manager
+    /// luckyShop
+    ///
+    /// The LuckyShop manager, which control customer, cart and products catalog
+    ///
+    /// In this SwiftUI based sample, the shop is passed as an environment object 
+    
     let luckyShop = LuckyShop()
     
-
     var body: some Scene {
         WindowGroup {
             withAnimation {
-            ShopView(orders: []).environmentObject(luckyShop)
-            .modifier(LCDebugLensModifier())
-                
+                ShopView(orders: []).environmentObject(luckyShop)
+                    .modifier(LCDebugViewModifier())
 #if os(macOS)
-                .frame(minWidth: 800, idealWidth: 800, maxWidth: 1200, minHeight: 600, idealHeight: 600, maxHeight: 800)
+                    .frame(minWidth: 800, idealWidth: 800, maxWidth: 1200, minHeight: 600, idealHeight: 600, maxHeight: 800)
 #endif
-        }
+            }
         }
     }
 }

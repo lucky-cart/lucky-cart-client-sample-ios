@@ -23,6 +23,7 @@ struct ShoppingView: View, BannerSpaceView {
     
     @State var numberOfProducts: Int = 0
     
+
     var body: some View {
         NavigationView {
             VStack {
@@ -38,14 +39,16 @@ struct ShoppingView: View, BannerSpaceView {
             .navigationTitle("Lucky Shop")
         }
         .task {
-            LuckyCart.shared.banner(with: .banner.byAppending("_100"), bannerSpaceIdentifier: bannerSpaceId,
+            LuckyCart.shared.banner(with: "banner_100",
+                                    bannerSpaceIdentifier: bannerSpaceId,
+                                    format: LuckyShop.bannerFormat,
             failure: { _ in })
             { banner in
                 print("Received Banner : ---->\r\(banner)\r<-----\r")
             }
         }
         
-        ButtonsBarView(numberOfProducts: $numberOfProducts, action: ("Check Out", { response in
+        ShoppingButtonsBarView(numberOfProducts: $numberOfProducts, action: ("Check Out", { response in
             shop.selectedView = "cart"
         })).padding()
             .onReceive(shop.cart.$totalNumberOfProducts) { numberOfProducts in
