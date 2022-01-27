@@ -26,10 +26,11 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     
     var currency: String = "EUR"
     
-    /// The user customer data
+    /// The current customer
     ///
-    /// It's the right place to set LuckyCart user id
-    ///
+    /// When the current customer currently browsing the shop changes,
+    /// we also set the current LuckyCart share instance customer id property.
+    
     @Published var customer: Customer? {
         didSet {
             LuckyCart.shared.setUser(customer == nil ? nil : LuckyCart.testCustomer)
@@ -104,21 +105,21 @@ class LuckyShop: ObservableObject, LuckyCartClient {
     
     func newCart() {
         cart = Cart()
-        LuckyCart.shared.newCart()
     }
     
     /// The check out request - in this sample, there is no network call. We simply call the success closure.
     ///
     /// In the real world, you probably need to send a request.
     
-    func checkOut(failure: @escaping (Error) -> Void, success: @escaping (Any?) -> Void) {
+    func sendCart(cartId: String, failure: @escaping (Error) -> Void, success: @escaping (Any?) -> Void) {
         do {
             let ticket = try luckyCartTicket(cartId: cart.id.uuidString)
             
             // Execute your checkout request here
             // Then proceed to LuckCart checkOut
             
-            LuckyCart.shared.checkOut(ticketComposer: ticket,
+            LuckyCart.shared.sendCart(cartId: cartId,
+                                      ticketComposer: ticket,
                                       failure: failure) { postCartResponse in
                 success(postCartResponse)
             }

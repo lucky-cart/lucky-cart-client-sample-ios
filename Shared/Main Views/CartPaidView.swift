@@ -19,6 +19,8 @@ struct CartPaidView: View, GamesView {
     
     @State var games: [LCGame] = []
     
+    @State var cartId: String
+    
     var action: (()->Void)
     @State var timeStamp: Date = Date()
     
@@ -54,7 +56,7 @@ struct CartPaidView: View, GamesView {
             
             //MARK: - Load LuckyCart games
             
-            LuckyCart.shared.loadGames { _ in
+            LuckyCart.shared.loadGames(cartId: cartId) { _ in
                 
             } success: { games in
                 self.games = games
@@ -67,7 +69,7 @@ struct CartPaidView: View, GamesView {
 
 struct PaidView_Previews: PreviewProvider {
     static var previews: some View {
-        CartPaidView() { }
+        CartPaidView(cartId: LuckyCart.testCart.id) { }
     }
 }
 

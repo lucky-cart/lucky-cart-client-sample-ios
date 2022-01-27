@@ -50,7 +50,7 @@ struct CartView: View {
             }.padding()
         
             ShoppingButtonsBarView(numberOfProducts: $numberOfProducts, action: ("Pay", { response in
-            shop.checkOut { error in
+                shop.sendCart(cartId: shop.cart.id.uuidString) { error in
                 
             } success: { response in
                 shop.cart.paid = true

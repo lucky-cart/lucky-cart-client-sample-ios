@@ -11,15 +11,18 @@ struct LogInOutButton: View {
     @EnvironmentObject var shop: LuckyShop
     
     var body: some View {
-        Button(shop.loggedIn ? "Log Out" : "Log In") {
+        Button() {
             if shop.loggedIn {
                 shop.logout()
             } else {
                 shop.login()
             }
+        } label: {
+            Label(shop.loggedIn ? "Log Out" : "Log In",
+                  systemImage: shop.loggedIn ? "person.crop.circle.fill.badge.checkmark"
+                  : "person.crop.circle.badge.xmark")
         }
-        .font(.caption)
-        .modifier(ShopButtonModifier(color: shop.loggedIn ? .red : .blue))
+        .foregroundColor(shop.loggedIn ? .red : .blue)
     }
 }
 

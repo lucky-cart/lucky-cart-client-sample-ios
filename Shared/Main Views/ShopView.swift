@@ -23,13 +23,29 @@ struct ShopButtonModifier_Previews: PreviewProvider {
 
 #endif
 
+protocol LCActionListener {
+    func handleBannerAction(action: LCBannerAction)
+}
 
-struct ShopView: View {
+extension LCActionListener {
+    
+    func listenLuckyCartActions() {
+        NotificationCenter.default.addObserver(forName: .bannerAction, object: nil, queue: nil) { notif in
+            guard let dictionary = notif.userInfo as? [String: LCBannerAction],
+                  let action = dictionary[LCBannerAction.Keys.action] else {
+                      return
+                  }
+            handleBannerAction(action: action)
+        }
+    }
+}
+
+struct ShopView: View, LCActionListener {
     
     enum Page {
         case homepage
         case shopping
-        case paid
+        case paid(cartId: String)
         case boutique(identifier: LCBoutiqueViewIdentifier)
     }
     
@@ -47,12 +63,30 @@ struct ShopView: View {
     
     @State var customerId: String? = LuckyCart.shared.customer.id
     
+    func handleBannerAction(action: LCBannerAction) {
+        switch action.type {
+        case .boutique:
+            page = .boutique(identifier: LCBoutiqueViewIdentifier(action.ref))
+            break
+        default:
+            return
+        }
+    }
+    
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
             HStack {
-                LogInOutButton().scaleEffect(CGSize(width: 0.7, height: 0.7))
+                LogInOutButton().scaleEffect(CGSize(width: 0.9, height: 0.9))
+                Spacer()
                 Text("LuckyCart Customer : \(LuckyCart.shared.customer.id)").font(.caption)
                 Spacer()
+                Button {
+                    page = .homepage
+                } label: {
+                    Label("", systemImage: "house.fill")
+                }
+                .scaleEffect(CGSize(width: 0.9, height: 0.9))
+                
             }
             switch page {
                 
@@ -74,8 +108,8 @@ struct ShopView: View {
                 
                 // MARK: - Paid View ( Succesful checkout )
                 
-            case .paid:
-                CartPaidView() {
+            case .paid(let cartId):
+                CartPaidView(cartId: cartId) {
                     page = .homepage
                 }
                 
@@ -104,7 +138,7 @@ struct ShopView: View {
         }
         .onReceive(shop.cart.$paid) { paid in
             if paid {
-                self.page = .paid
+                self.page = .paid(cartId: shop.cart.id.uuidString)
             }
         }
         .onReceive(shop.$selectedView) { identifier in
@@ -116,22 +150,11 @@ struct ShopView: View {
         .onReceive(shop.$customer) { cart in
             customerId = shop.customer?.id
         }
+        
+        // MARK: - Start to listen to banner actions notifications when the view appears -->
+        
         .onAppear() {
-            let _ = NotificationCenter.default.addObserver(forName: .bannerAction, object: nil, queue: nil) { notif in
-                guard let dictionary = notif.userInfo as? [String: Any?],
-                      let ref = dictionary[Keys.ref] as? String, !ref.isEmpty,
-                      let actionType = dictionary[Keys.action] as? LCBannerActionType else {
-                          return
-                      }
-                
-                switch actionType {
-                case .boutique:
-                    page = .boutique(identifier: LCBoutiqueViewIdentifier(ref))
-                    break
-                default:
-                    return
-                }
-            }
+            listenLuckyCartActions()
         }
         .padding()
     }

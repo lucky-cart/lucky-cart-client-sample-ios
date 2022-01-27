@@ -9,24 +9,33 @@
 import SwiftUI
 import LuckyCart
 
-struct HomePageView: BannerSpaceView {
+struct HomePageView: LCBannersView {
+    
+    // The banners array
+    var banners: State<[LCBanner]> = State(initialValue: [])
+    
+    // BannerSpaceView
     var bannerSpaceId: LCBannerSpaceIdentifier = LuckyShop.homepage
-    
-    @EnvironmentObject var shop: LuckyShop
-    
-    @State var banners: [LCBanner] = []
     
     var action: (()->Void)?
     
     var body: some View {
         HStack {
             VStack(alignment: .center, spacing: 16) {
+                
+                // Logo and welcome message
+                
                 Image("logo").resizable().frame(width: 160, height: 160, alignment: .center)
                 Text("Welcome")
                 
-                List(banners) { banner in
+                // MARK: - Display the list of LuckyCart banners -->
+                
+                List(banners.wrappedValue) { banner in
                     LCSimpleBannerView(banner: banner)
                 }
+                
+                // Displays a centered start button that call an action set by the ShopView ( Top container view )
+                
                 HStack {
                     Button("Start Shopping") {
                         action?()
@@ -34,15 +43,14 @@ struct HomePageView: BannerSpaceView {
                     .modifier(ShopButtonModifier(color: .green))
                 }
             }
-        }.task {
-            LuckyCart.shared.banner(with: LCBannerIdentifier("banner"),
-                                    bannerSpaceIdentifier: bannerSpaceId,
-                                    format: LuckyShop.bannerFormat,
-                                    failure: { error in
-            }) { banner in
-                banners.append(banner)
-            }
         }
+        
+        // MARK: - Load the LuckyCart banners when the view appears -->
+        
+        .task {
+            loadBanner(bannerId: LuckyShop.homePageBanner, format: LuckyShop.bannerFormat)
+        }
+        
     }
 }
 

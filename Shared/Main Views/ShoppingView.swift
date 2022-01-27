@@ -9,9 +9,9 @@
 import SwiftUI
 import LuckyCart
 
-struct ShoppingView: View, BannerSpaceView {
+struct ShoppingView: View, LCBannersView {
     
-    @State var banners: [LCBanner] = []
+    var banners: State<[LCBanner]> = State.init(initialValue: [])
     
     var bannerSpaceId: LCBannerSpaceIdentifier = LCBannerSpaceIdentifier("categories")
     
