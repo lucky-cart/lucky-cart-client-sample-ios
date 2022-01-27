@@ -15,7 +15,7 @@ struct HomePageView: LCBannersView {
     var banners: State<[LCBanner]> = State(initialValue: [])
     
     // BannerSpaceView
-    var bannerSpaceId: LCBannerSpaceIdentifier = LuckyShop.homepage
+    var bannerSpaceId: String = LuckyShop.homepage
     
     var action: (()->Void)?
     
@@ -24,15 +24,14 @@ struct HomePageView: LCBannersView {
             VStack(alignment: .center, spacing: 16) {
                 
                 // Logo and welcome message
-                
-                Image("logo").resizable().frame(width: 160, height: 160, alignment: .center)
-                Text("Welcome")
+                LogoView()
                 
                 // MARK: - Display the list of LuckyCart banners -->
                 
                 List(banners.wrappedValue) { banner in
                     LCSimpleBannerView(banner: banner)
-                }
+                }.listStyle(InsetListStyle())
+                
                 
                 // Displays a centered start button that call an action set by the ShopView ( Top container view )
                 

@@ -40,15 +40,15 @@ extension LCActionListener {
     }
 }
 
+enum Page: Equatable {
+    case homepage
+    case shopping
+    case paid(cartId: String)
+    case boutique(identifier: String)
+}
+
 struct ShopView: View, LCActionListener {
-    
-    enum Page {
-        case homepage
-        case shopping
-        case paid(cartId: String)
-        case boutique(identifier: LCBoutiqueViewIdentifier)
-    }
-    
+        
     @EnvironmentObject var shop: LuckyShop
     
     var displayedCategories: [Category] {
@@ -66,7 +66,7 @@ struct ShopView: View, LCActionListener {
     func handleBannerAction(action: LCBannerAction) {
         switch action.type {
         case .boutique:
-            page = .boutique(identifier: LCBoutiqueViewIdentifier(action.ref))
+            page = .boutique(identifier: String(action.ref))
             break
         default:
             return
@@ -75,19 +75,7 @@ struct ShopView: View, LCActionListener {
     
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
-            HStack {
-                LogInOutButton().scaleEffect(CGSize(width: 0.9, height: 0.9))
-                Spacer()
-                Text("LuckyCart Customer : \(LuckyCart.shared.customer.id)").font(.caption)
-                Spacer()
-                Button {
-                    page = .homepage
-                } label: {
-                    Label("", systemImage: "house.fill")
-                }
-                .scaleEffect(CGSize(width: 0.9, height: 0.9))
-                
-            }
+            HeaderView(page: $page)
             switch page {
                 
                 // MARK: - Homepage / Welcome

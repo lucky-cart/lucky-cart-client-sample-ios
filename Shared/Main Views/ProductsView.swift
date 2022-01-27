@@ -12,11 +12,11 @@ import LuckyCart
 struct BrowserItem: Identifiable {
     let id = UUID()
     var product: Product?
-    var bannerId: LCBannerIdentifier?
+    var bannerId: String?
     var banner: LCBanner?
 }
 
-struct CategoryBrowser: View {
+struct ProductsView: View {
     
     @EnvironmentObject var shop: LuckyShop
     
@@ -39,12 +39,15 @@ struct CategoryBrowser: View {
         return out
     }
     
-    /// In this example, we choose to display a banner in second position
-    func bannerIdentifier(for productId: String?) -> LCBannerIdentifier? {
+    /// In this example, we choose to display a promotional banners
+    /// for two different coffee brands
+    func bannerIdentifier(for productId: String?) -> String? {
         guard let id = productId else { return nil }
         switch id {
         case "ristretto":
-            return "banner"
+            return "100"
+        case "blue_mountain":
+            return "200"
         default:
             return nil
         }
@@ -56,18 +59,18 @@ struct CategoryBrowser: View {
             if let product = item.product {
                 ProductView(item: product)
             } else {
-                LCAsyncSimpleBannerView(bannerSpaceId: LuckyShop.homepage,
+                LCAsyncSimpleBannerView(bannerSpaceId: LuckyShop.categories,
                                         bannerId: item.bannerId!,
                                         format: LuckyShop.bannerFormat)
             }
         }
-        
+        .listStyle(InsetListStyle())
         .navigationTitle(category.name)
     }
 }
 
 struct ProductBrowser_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryBrowser(category: TestCatalog.coffees)
+        ProductsView(category: TestCatalog.coffees)
     }
 }

@@ -178,7 +178,7 @@ How banners are used and displayed is the client responsaibility.
 
 ```swift
 struct MyHomePageView: BannerSpaceView {
-    var bannerSpaceId: LCBannerSpaceIdentifier = .homePage    
+    var bannerSpaceId: String = .homePage    
     @State var banners: [LCBanner] = []
     
     var body: some View {
@@ -243,7 +243,8 @@ extension MyShopManager {
 
 ```swift
 struct MyGamesView: GamesView {
-        
+    
+    @State var cartId: String?
     @State var games: [LCGame] = []
     
     var body: some View {
@@ -257,7 +258,7 @@ struct MyGamesView: GamesView {
                 // --->
                 
                 List(games) { game in
-                    LCGameView(game: game)
+                    LCGameView(cartId: cartId, game: game)
                     .frame(height: 80, alignment: .center)
                 }
                 

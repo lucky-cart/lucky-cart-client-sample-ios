@@ -37,13 +37,13 @@ struct Keys {
 
 extension LuckyShop {
     
-    public static let homepage = LCBannerSpaceIdentifier(rawValue: "homepage")
-    public static let categories = LCBannerSpaceIdentifier(rawValue: "categories")
+    public static let homepage = "homepage"
+    public static let categories = "categories"
     
-    public static let homePageBanner = LCBannerIdentifier(rawValue: "banner")
-    public static let bannerFormat = LCBannerFormat(rawValue: "banner")
+    public static let homePageBanner = ""
+    public static let bannerFormat = "banner"
     
-    public static let boutique = LCBoutiqueViewIdentifier(rawValue: "boutique")
+    public static let boutique = "boutique"
     
     /// initLuckyCart
     ///

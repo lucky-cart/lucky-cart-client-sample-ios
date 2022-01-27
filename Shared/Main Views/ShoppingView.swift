@@ -13,7 +13,7 @@ struct ShoppingView: View, LCBannersView {
     
     var banners: State<[LCBanner]> = State.init(initialValue: [])
     
-    var bannerSpaceId: LCBannerSpaceIdentifier = LCBannerSpaceIdentifier("categories")
+    var bannerSpaceId: String = String("categories")
     
     @EnvironmentObject var shop: LuckyShop
     
@@ -23,26 +23,24 @@ struct ShoppingView: View, LCBannersView {
     
     @State var numberOfProducts: Int = 0
     
-
+    
     var body: some View {
         NavigationView {
-            VStack {
-                List(displayedCategories, selection: $selectedCategory) { category in
-                    NavigationLink {
-                        CategoryBrowser(category: category)
-                    } label: {
-                        CategoryView(item:category).frame(minWidth: 200, maxWidth: 1000, minHeight: 80, maxHeight: 120, alignment: .center)
-                    }
+            List(displayedCategories, selection: $selectedCategory) { category in
+                NavigationLink {
+                    ProductsView(category: category)
+                } label: {
+                    CategoryView(item:category)                        
                 }
             }
-            
-            .navigationTitle("Lucky Shop")
+            .listStyle(InsetListStyle())
         }
+        
         .task {
-            LuckyCart.shared.banner(with: "banner_100",
+            LuckyCart.shared.banner(with: "100",
                                     bannerSpaceIdentifier: bannerSpaceId,
                                     format: LuckyShop.bannerFormat,
-            failure: { _ in })
+                                    failure: { _ in })
             { banner in
                 print("Received Banner : ---->\r\(banner)\r<-----\r")
             }

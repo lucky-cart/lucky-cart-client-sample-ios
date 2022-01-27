@@ -14,15 +14,12 @@ struct CategoryView: View {
     @State var item: ShopItem
     
     var body: some View {
-        ZStack {
-            if let imageName = item.imageName {
-                Image(imageName)
-            }
-            Text(item.name).font(.title).bold().fixedSize().foregroundColor(.white)
+        if let imageName = item.imageName {
+            Image(imageName).resizable().scaledToFill()
+                .frame(minWidth: 200, maxWidth: 1000, minHeight: 40, maxHeight: 70, alignment: .center)
+                .padding([.top,.bottom], 16)
+
         }
-        //.frame(minHeight: 80, idealHeight: 80, maxHeight: 80, alignment: .center)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
-        .padding()
     }
 }
 

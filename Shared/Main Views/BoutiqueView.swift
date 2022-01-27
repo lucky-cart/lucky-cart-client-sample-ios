@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-
-import SwiftUI
 import LuckyCart
 
 /// Displays a 'Boutique' view, that can be accessed by clicking a banner
@@ -17,7 +15,7 @@ struct BoutiqueView: View, LCBoutiqueView {
     @EnvironmentObject var shop: LuckyShop
     
     /// The view identifier that will be set in the action reference
-    var boutiquePageIdentifier: LCBoutiqueViewIdentifier
+    var boutiquePageIdentifier: String
     
     var action: (()->Void)?
     
@@ -31,10 +29,15 @@ struct BoutiqueView: View, LCBoutiqueView {
     
     var body: some View {
         VStack {
-            Text("Promotion \(brand.name)").font(.title2)
+            VStack {
+                Text("Promotion").font(.title3).foregroundColor(.cyan)
+                Text("\(brand.name)").font(.title).foregroundColor(.cyan)
+            }
             List(products) { product in
                 ProductView(item: product)
             }
+            .listStyle(InsetListStyle())
+
             BoutiqueButtonsBarView(action: ("Continue Shopping", {
                 action?()
             })).padding()
@@ -43,9 +46,8 @@ struct BoutiqueView: View, LCBoutiqueView {
     }
 }
 
-
 struct BoutiqueView_Previews: PreviewProvider {
     static var previews: some View {
-        BoutiqueView(boutiquePageIdentifier: LCBoutiqueViewIdentifier("250")).environmentObject(LuckyShop())
+        BoutiqueView(boutiquePageIdentifier: "250").environmentObject(LuckyShop())
     }
 }

@@ -13,7 +13,7 @@ import LuckyCart
 ///
 /// The view that the sample app displays once the order is paid
 
-struct CartPaidView: View, GamesView {
+struct CartPaidView: View, LCGamesView {
     
     @EnvironmentObject var shop: LuckyShop
     
@@ -27,22 +27,24 @@ struct CartPaidView: View, GamesView {
     var body: some View {
         HStack {
             VStack(alignment: .center, spacing: 8) {
-                Image("logo").resizable().frame(width: 160, height: 160, alignment: .center)
-                Text("Thanks for your purchase")
-                Button("Shop Again") {
-                    action()
-                }
-                .modifier(ShopButtonModifier(color: .green))
+                // Logo and welcome message
+                LogoView(message: "Thanks for your purchase")
+
                 
                 //MARK: - Display LuckyCart Games
                 
                 List($games) { game in
-                    LCGameView(game: game)
+                    LCGameView(cartId: cartId, game: game)
                     .modifier(LCGameResultViewModifier(gameResult: game.gameResult.wrappedValue))
                     .frame(minWidth: nil, idealWidth: nil, maxWidth: nil,
                            minHeight: 30, idealHeight: 240, maxHeight: 300)
                 }
+                .listStyle(InsetListStyle())
                 
+                Button("Shop Again") {
+                    action()
+                }
+                .modifier(ShopButtonModifier(color: .green))
             }
         }
         

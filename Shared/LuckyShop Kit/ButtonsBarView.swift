@@ -50,7 +50,7 @@ struct ShoppingButtonsBarView: View {
                         .font(.caption2)
                 }
             }
-        }.padding(16).cornerRadius(8)
+        }.padding([.leading, .trailing], 16).padding([.top, .bottom], 4).cornerRadius(8)
     }
 }
 
