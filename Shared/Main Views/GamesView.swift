@@ -71,7 +71,7 @@ struct CartPaidView: View, LCGamesView {
 
 struct PaidView_Previews: PreviewProvider {
     static var previews: some View {
-        CartPaidView(cartId: LuckyCart.testCart.id) { }
+        CartPaidView(cartId: LuckyCart.testCart) { }
     }
 }
 

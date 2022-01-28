@@ -75,12 +75,9 @@ class MyShopManager: LuckyCartClient {
 
     func initLuckyCart() {
         let auth = LCAuthorization(key: <authKey>, secret: <secret>)
-        let luckyCartCustomer = LCCustomer(<id>)
-        let luckyCartCart = LCCart(<id>)
-
         _ = LuckyCart(authorization: LuckyCart.testAuthorization,
-                      customer: LuckyCart.testCustomer,
-                      cart: LuckyCart.testCart)
+                      customer: "Customer id ( if available )",
+                      cart: "Cart id ( if available )")
     }
 }
 ```

@@ -12,7 +12,7 @@ struct HeaderView: View {
     
     @Binding var page: Page
     
-    @State var customerName: String = "\(LuckyCart.shared.customer.id)"
+    @State var customerName: String = "\(LuckyCart.shared.customer)"
     
     var body: some View {
         HStack {
@@ -20,7 +20,7 @@ struct HeaderView: View {
             Spacer()
             VStack(alignment: .trailing) {
                 Text("LuckyCart Customer").font(.system(size: 8))
-                Text("\(LuckyCart.shared.customer.id)").font(.caption).bold()
+                Text("\(LuckyCart.shared.customer)").font(.caption).bold()
             }.padding(8)
             Button {
                 page = .homepage

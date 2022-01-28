@@ -61,7 +61,7 @@ struct ShopView: View, LCActionListener {
     
     @State var page: Page = .homepage
     
-    @State var customerId: String? = LuckyCart.shared.customer.id
+    @State var customerId: String? = LuckyCart.shared.customer
     
     func handleBannerAction(action: LCBannerAction) {
         switch action.type {
